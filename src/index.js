@@ -17,21 +17,23 @@ const show = (obj) => {
 
 // binary search tree
 
-function findOrAdd(rootNode, newNode){
-    let currentNode = rootNode
-    if(newNode.data < rootNode.data){
-        currentNode = rootNode.left
-        if(currentNode){
-          findOrAdd(currentNode, newNode)
-        } else {
-          rootNode.left = newNode
-        }
-    } else if(newNode.data > rootNode.data) {
-      currentNode = rootNode.right
-      if(currentNode){
-        findOrAdd(currentNode, newNode)
+function findOrAdd(currentNode, newNode){
+    if(currentNode.data == newNode.data){
+      return true
+    }
+    if(newNode.data < currentNode.data){
+      if(currentNode.left){
+        return findOrAdd(currentNode.left, newNode)
       } else {
-        rootNode.right = newNode
+        return currentNode.left = newNode
+      }
+    }
+  
+    if(newNode.data > currentNode.data){
+      if(currentNode.right){
+        return findOrAdd(currentNode.right, newNode)
+      } else {
+        return currentNode.right = newNode
       }
     }
   }
@@ -42,30 +44,44 @@ function findOrAdd(rootNode, newNode){
       right: {data: 9, left: null, right: null}
     }}
 
+    let arr = []
     function inOrder(currentNode){
-        if(currentNode.left){
-          inOrder(currentNode.left)
+       
+          if(currentNode.left){
+            inOrder(currentNode.left)
+          }
+         arr.push(currentNode.data)
+          if(currentNode.right){
+            inOrder(currentNode.right)
+          }
+          arr.push(currentNode.data)
+          return arr
         }
-        onScreen(currentNode.data)
-        if(currentNode.right){
-          inOrder(currentNode.right)
-        }
-        onScreen(currentNode.data)
-      }
 
-      inOrder(node)
+    
+      
       let newNode = {data: 3, left: null, right: null}
       findOrAdd(node, newNode)
-      inOrder(node)
+
       newNode = {data: 17, left: null, right: null}
       findOrAdd(node, newNode)
-      inOrder(node)
+     
     show(node)
     
-    findOrAdd(node, {data: 2, left: null, right: null})
+   let newer = findOrAdd(node, {data: 2, left: null, right: null})
     show(node)
-    findOrAdd(node, {data: 18, left: null, right: null})
+   let new2 = findOrAdd(node, {data: 18, left: null, right: null})
     show(node)
-      
-
+   let new3 = findOrAdd(node, {data: 3, left: null, right: null})
+    show(node)
+    let result = findOrAdd(node, {data: 18, left: null, right: null})
+    onScreen(result)
+let example = inOrder(node)
+show(example)
+    function min(tree) {
+        let values = inOrder(node)
+        let unique = [...new Set(values)]
+        return Math.min(...unique) 
+    }
    
+onScreen(min(node))
