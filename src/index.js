@@ -44,19 +44,22 @@ function findOrAdd(currentNode, newNode){
       right: {data: 9, left: null, right: null}
     }}
 
-    let arr = []
-    function inOrder(currentNode){
-       
+    
+    function inOrder(node){
+        let arr = []
+        function inOrderA(currentNode) {
           if(currentNode.left){
-            inOrder(currentNode.left)
+            inOrderA(currentNode.left)
           }
          arr.push(currentNode.data)
           if(currentNode.right){
-            inOrder(currentNode.right)
+            inOrderA(currentNode.right)
           }
           arr.push(currentNode.data)
           return arr
         }
+       return inOrderA(node)
+    }
 
     
       
@@ -92,3 +95,4 @@ function min(tree) {
     }
 
 onScreen(min(node))
+onScreen(max(node))
