@@ -9,6 +9,12 @@ function onScreen(string) {
 onScreen("Test")
 onScreen("Test2")
 
+// display object on the DOM
+const show = (obj) => {
+    onScreen(JSON.stringify(obj, null, 4));
+}
+
+
 // binary search tree
 
 function findOrAdd(rootNode, newNode){
@@ -54,4 +60,12 @@ function findOrAdd(rootNode, newNode){
       newNode = {data: 17, left: null, right: null}
       findOrAdd(node, newNode)
       inOrder(node)
-      onScreen(node.JSON)
+    show(node)
+    
+    findOrAdd(node, {data: 2, left: null, right: null})
+    show(node)
+    findOrAdd(node, {data: 18, left: null, right: null})
+    show(node)
+      
+
+   
