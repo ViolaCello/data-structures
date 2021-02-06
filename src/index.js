@@ -1,5 +1,10 @@
 
-let element = document.querySelector("p#now")
-element.innerHTML = 'Hello, DOM!'
+let element = document.querySelector("div#now")
+element.innerHTML = 'Hello, DOM!<br>'
 
-element.innerHTML = "Now now cow"
+function onScreen(string) {
+   string +=`<br>`
+    return  element.innerHTML += string
+}
+onScreen("Test")
+onScreen("Test2")
