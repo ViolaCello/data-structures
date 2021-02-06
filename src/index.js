@@ -78,10 +78,17 @@ function findOrAdd(currentNode, newNode){
     onScreen(result)
 let example = inOrder(node)
 show(example)
-    function min(tree) {
+    
+function min(tree) {
         let values = inOrder(node)
         let unique = [...new Set(values)]
         return Math.min(...unique) 
     }
    
+    function max(tree) {
+        let values = inOrder(node)
+        let unique = [...new Set(values)]
+        return Math.max(...unique) 
+    }
+
 onScreen(min(node))
