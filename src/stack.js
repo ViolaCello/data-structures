@@ -1,3 +1,8 @@
+// Data Structures
+// a Stack is a data structure that is First In Last Out (FILO) || Last In First Out
+// (as opposed to a Queue, which is First In First Out (FIFO))
+
+
 const Stack = function() {
     this.count = 0
     this.storage = {}
