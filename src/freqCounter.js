@@ -8,15 +8,16 @@ function validAnagram(str1, str2){
         freq1[letter] = freq1[letter] +1 || 1
     }
     for (letter of str2) {
-        freq1[letter] = freq1[letter] +1 || 1
+        freq2[letter] = freq2[letter] +1 || 1
     }
-    for (key of freq1) {
+    for (key in freq1) {
         if (!(key in freq2)) {
             return false
         }
         if (freq1[key] != freq2[key])
         return false
     }
+    console.log(freq1, freq2)
     return true
     
   }
