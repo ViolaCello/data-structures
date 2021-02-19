@@ -10,4 +10,13 @@ function validAnagram(str1, str2){
     for (letter of str2) {
         freq1[letter] = freq1[letter] +1 || 1
     }
+    for (key of freq1) {
+        if (!(key in freq2)) {
+            return false
+        }
+        if (freq1[key] != freq2[key])
+        return false
+    }
+    return true
+    
   }
