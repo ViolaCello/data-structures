@@ -14,3 +14,13 @@ function sumZero(arr) {
         }
     }
 }
+
+// given a sorted array, count the unique values and return that #
+function countUniqValues(arr) {
+    let collection = {}
+    let result = arr.length
+    for (count of arr) {
+        collection[count] = collection[count] + 1 || 1
+    }
+    for 
+}
