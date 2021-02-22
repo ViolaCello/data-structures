@@ -29,8 +29,16 @@ function countUniqueValues(arr){
   // populate the array with the unique value.  At the end of the array, return the index of the final unique value + 1
 
   function countUniqValues(arr) {
-      if (arr.length == 0) {
-          return 0
-      } // otherwise, due to the way we write this, a 0 would return a 1
-
-  }
+    if (arr.length === 0) {
+        return 0
+    } // otherwise, due to the way we write this, a 0 would return a 1
+    let i = 0;
+    for (let j=1; j<arr.length; j++) {
+        if(arr[i]!=arr[j]) {
+            i++
+          arr[i] = arr[j]
+          
+        }
+    }
+    return i + 1
+}
