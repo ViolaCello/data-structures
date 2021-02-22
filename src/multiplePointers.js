@@ -23,3 +23,14 @@ function countUniqueValues(arr){
       }
       return Object.keys(collection).length
   }
+
+  // however, we can also count the unique values in a sorted array using two pointers, 
+  // one starting at the 0 index and one starting at the 1 index, and if they are unique,
+  // populate the array with the unique value.  At the end of the array, return the index of the final unique value + 1
+
+  function countUniqValues(arr) {
+      if (arr.length == 0) {
+          return 0
+      } // otherwise, due to the way we write this, a 0 would return a 1
+
+  }
