@@ -10,9 +10,9 @@ def sum_zero(arr)
         if arr[left] + arr[right] == 0
             return [left, right]
         elsif arr[left] + arr[right] > 0
-            right--
+            right-= 1
         else 
-            left++
+            left+=1
         end
     end
 end
