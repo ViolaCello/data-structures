@@ -42,3 +42,18 @@ function countUniqueValues(arr){
     }
     return i + 1
 }
+
+// write a function that returns true/false if the two intergers have the same freqencey of digits
+// ex: 182, 281 -> true
+// 34, 14 -> false
+// 22, 222 -> false
+
+function sameFrequency(a,b){
+    let aa = a.toString()
+    let bb = b.toString()
+    if (aa.length != bb.length) {
+        return false
+    }
+    
+  }
+  
