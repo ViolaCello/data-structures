@@ -148,21 +148,19 @@ function areThereDuplicates(...args) {
   }
 // Sliding Window
 // find the max sum of a CONSECUTIVE subArray
-  function maxSubarraySum(arr, n){
-    if (n>arr.length) {
-        return null
+function maxSubarraySum(arr, num){
+    if (arr.length < num) return null;
+ 
+    let total = 0;
+    for (let i=0; i<num; i++){
+       total += arr[i];
     }
-    let sum = 0
-        for (let i = 0; i<n; i++){
-           sum = sum + arr[left]
-           left++
-        }
-      if (result<sum) { 
-          result = sum
-        }
-        left++
-        right = right + n
-        sum = 0
-    
-    return result
+    let currentTotal = total;
+    for (let i = num; i < arr.length; i++) {
+        console.log("A", currentTotal)
+       currentTotal += arr[i] - arr[i-num];
+        console.log("B", currentTotal)
+       total = Math.max(total, currentTotal);
+    }
+    return total;
 }
