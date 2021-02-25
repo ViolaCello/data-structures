@@ -110,3 +110,13 @@ function areThereDuplicates(...args) {
     }
     return false
   }
+
+  // given an array of sorted #'s and a target, 
+  // determine if there is a pair of numbers who's average = the target
+  function averagePair(arr, target){
+    let left = 0
+    let right = arr.length - 1
+    while (left<right) {
+        
+    }
+  }
