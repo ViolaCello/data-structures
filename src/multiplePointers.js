@@ -116,7 +116,16 @@ function areThereDuplicates(...args) {
   function averagePair(arr, target){
     let left = 0
     let right = arr.length - 1
+    let avg = 0
     while (left<right) {
-        
+        avg = arr[left]+arr[right]/2
+        if (avg===target) {
+            return true
+        } else if (avg > target) {
+            right--
+        } else {
+            left++
+        }
     }
+    return false
   }
