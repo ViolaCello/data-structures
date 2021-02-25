@@ -84,5 +84,13 @@ function sameFrequency(a,b){
     for (let i = 0; i < arguments.length; i++) {
         arr.push(arguments[i])
   }
-  
+  let valuesSoFar = {}
+  for (let i = 0; i < arr.length; ++i) {
+      let value = arr[i]
+      if (value in valuesSoFar) {
+          return true
+      }
+      valuesSoFar[value] = true
+  }
+  return false
 }
