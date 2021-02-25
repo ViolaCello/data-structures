@@ -59,13 +59,13 @@ function sameFrequency(a,b){
     }
     let freq1 = {}
     let freq2 = {}
-    for (letter of str1) {
+    for (let letter of aa) {
         freq1[letter] = freq1[letter] +1 || 1
     }
-    for (letter of str2) {
+    for (let letter of bb) {
         freq2[letter] = freq2[letter] +1 || 1
     }
-    for (key in freq1) {
+    for (let key in freq1) {
         if (!(key in freq2)) {
             return false
         }
