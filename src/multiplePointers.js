@@ -76,5 +76,13 @@ function sameFrequency(a,b){
     return true
     
   }
+
+  // accepts a variable number of arguments
+  // check for dublicates amongst the arguments
+  function areThereDuplicates() {
+      let arr = []
+    for (let i = 0; i < arguments.length; i++) {
+        arr.push(arguments[i])
+  }
   
-  
+}
