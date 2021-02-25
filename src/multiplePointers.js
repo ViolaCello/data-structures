@@ -152,15 +152,17 @@ function areThereDuplicates(...args) {
     if (n>arr.length) {
         return null
     }
-    let left = 0
-    let right = 1
-    let result = arr[left] + arr[right]
-    while (right<arr.length) {
-      if (result<(arr[left]+arr[right])) { 
-          result = arr[left] + arr[right]
+    let sum = 0
+        for (let i = 0; i<n; i++){
+           sum = sum + arr[left]
+           left++
+        }
+      if (result<sum) { 
+          result = sum
         }
         left++
-        right++
-    }
+        right = right + n
+        sum = 0
+    
     return result
 }
