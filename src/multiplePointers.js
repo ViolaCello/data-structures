@@ -129,3 +129,20 @@ function areThereDuplicates(...args) {
     }
     return false
   }
+
+  // multiple pointers. Checks if the lettering in first string can form word in 2nd string without changing the order
+  function isSubsequence(word, phrase) {
+    let check =""
+    let wordLeft = 0
+
+    for (let i = 0; i<phrase.length; i++) {
+        if (word[wordLeft]==phrase[i]) {
+            check = check+phrase[i]
+            if (check==word) {
+                return true
+            }
+            wordLeft++
+        }
+    }
+    return false
+  }
