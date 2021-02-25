@@ -146,3 +146,21 @@ function areThereDuplicates(...args) {
     }
     return false
   }
+// Sliding Window
+// find the max sum of a CONSECUTIVE subArray
+  function maxSubarraySum(arr, n){
+    if (n>arr.length) {
+        return null
+    }
+    let left = 0
+    let right = 1
+    let result = arr[left] + arr[right]
+    while (right<arr.length) {
+      if (result<(arr[left]+arr[right])) { 
+          result = arr[left] + arr[right]
+        }
+        left++
+        right++
+    }
+    return result
+}
