@@ -12,3 +12,11 @@ function recursiveSum(n) {
 
 let ex = recursiveSum(11)
 onScreen(ex)
+
+function factorial(n) {
+    if (n===1) return 1
+    return n * factorial(n-1)
+}
+
+let factor = factorial(3)
+onScreen(factor)
