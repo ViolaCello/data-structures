@@ -27,3 +27,13 @@ function power(base, exponent){
     if(exponent === 0) return 1
     return base * power(base,exponent-1)
 }
+
+// productOfArray using recusion
+function productOfArray(arr) {
+    let result = []
+    function helper(helpArr) {
+        if (helpArr.length===0) return 1
+        result = result * helper(helpArr.slice(1))
+    }
+    return result
+}
