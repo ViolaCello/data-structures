@@ -30,10 +30,9 @@ function power(base, exponent){
 
 // productOfArray using recusion
 function productOfArray(arr) {
-    let result = []
-    function helper(helpArr) {
-        if (helpArr.length===0) return 1
-        result = result * helper(helpArr.slice(1))
+    if(arr.length === 0) {
+        return 1;
     }
-    return result
+    return arr[0] * productOfArray(arr.slice(1));
 }
+
