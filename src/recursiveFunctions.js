@@ -46,8 +46,10 @@ function recursiveRange(n) {
 function fib(n) {
     let subResult = []
     subResult.push(1)
+     subResult.push(1)
     let j = 2
     function helper(nn) {
+        console.log(nn, subResult)
         if (nn==n) return subResult
         let q = subResult[nn-2]
         let qq = subResult[nn-1]
@@ -55,5 +57,6 @@ function fib(n) {
         return helper(nn+1)
     }
     helper(j)
-    return subResult[-1]
+    console.log("END:", subResult[n-1])
+    return subResult[n-1]
 }
