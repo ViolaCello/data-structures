@@ -36,3 +36,8 @@ function productOfArray(arr) {
     return arr[0] * productOfArray(arr.slice(1));
 }
 
+// recursiveRange - adds numbers from 0 to n
+function recursiveRange(n) {
+    if (n===0) return 0
+    return n + recursiveRange(n-1)
+}
