@@ -41,3 +41,19 @@ function recursiveRange(n) {
     if (n===0) return 0
     return n + recursiveRange(n-1)
 }
+
+// recusive fibonacci, return the nTH number of the fibonacci sequence
+function fib(n) {
+    let subResult = []
+    subResult.push(1)
+    let j = 2
+    function helper(nn) {
+        if (nn==n) return subResult
+        let q = subResult[nn-2]
+        let qq = subResult[nn-1]
+        subResult.push(q+qq)
+        return helper(nn+1)
+    }
+    helper(j)
+    return subResult[-1]
+}
