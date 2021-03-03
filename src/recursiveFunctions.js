@@ -20,3 +20,10 @@ function factorial(n) {
 
 let factor = factorial(3)
 onScreen(factor)
+
+// return the power of the base component recusively
+// basically, Math.pow(x,y)
+function power(base, exponent) {
+    if (exponent===1) return base
+    return base * power(base, exponent-1)
+}
