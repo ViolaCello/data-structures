@@ -60,3 +60,16 @@ function fib(n) {
     console.log("END:", subResult[n-1])
     return subResult[n-1]
 }
+
+// reverse a string recursively
+function reverse(str) {
+    let rev = ""
+    function helper(s) {
+        console.log(s.length)
+        if (s.length==0) return
+        rev.concat(s.slice(-1))
+        return helper(s.slice(0,-1))
+    }
+    helper(str)
+    return rev
+}
