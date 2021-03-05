@@ -65,9 +65,11 @@ function fib(n) {
 function reverse(str) {
     let rev = ""
     function helper(s) {
-        console.log(s.length)
+      //  console.log(s.length)
         if (s.length==0) return
-        rev.concat(s.slice(-1))
+        console.log("rev before: ", rev)
+        rev = rev.concat(s.slice(-1))
+     //   console.log("rev after: ", rev)
         return helper(s.slice(0,-1))
     }
     helper(str)
