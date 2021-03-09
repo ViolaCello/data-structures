@@ -84,7 +84,7 @@ function isPalindrome(word){
     let last = word.slice(-1)
     if (top==last) {
         word = word.slice(1,-1)
-        isPalindrome(word)
+       return isPalindrome(word)
     } else {
         return false
     } 
