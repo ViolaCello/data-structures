@@ -87,5 +87,6 @@ function isPalindrome(word){
         isPalindrome(word)
     } else {
         return false
-    }
+    } 
+    return false
   }
