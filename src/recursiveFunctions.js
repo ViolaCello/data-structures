@@ -75,3 +75,17 @@ function reverse(str) {
     helper(str)
     return rev
 }
+
+
+// isPalindrome resursively
+function isPalindrome(word){
+    if (word.length<=1) return true
+    let top = word[0]
+    let last = word.slice(-1)
+    if (top==last) {
+        word = word.slice(1,-1)
+        isPalindrome(word)
+    } else {
+        return false
+    }
+  }
