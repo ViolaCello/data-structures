@@ -17,15 +17,28 @@ function linearSearch(arr, item) {
 function binarySearch(arr, value){
     let left = 0
     let right = arr.length-1
-    if (arr[left]===value) return left
-    if (arr[right]===value) return right
-    let result = 0
-    while (result === 0) {
-        let mid = ((right-left)/2).toFixed(0)
-        if (arr[mid]===value) {
-            result = mid
-            return result
+    let mid = Math.floor((left+right)/2)
+    if (arr[mid]==value) return mid
+    while(arr[mid] !== value && left <= right) {
+       // console.log(left, right, mid, result)
+       if (left===right-1) {
+           if (arr[left]==value) { 
+               return left 
+           } else if (arr[right]==value) {
+               return right
+           } else 
+           {
+               return -1
+           }
+       }
+        mid = Math.floor((right+left)/2)
+        if (arr[mid]==value) {
+            return mid
         }
-        
+        if (value<arr[mid]) {
+            right = mid
+        } else 
+        left = mid
     }
+    return -1
 }
