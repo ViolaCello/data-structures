@@ -12,3 +12,14 @@ def running_sum(nums)
    end
     return result
 end
+
+# recreate indexOf
+def linear_search(arr, item)
+    for i in arr do
+        if arr[i]==item
+            return i
+            break
+        end
+    end
+   return -1
+end
