@@ -42,3 +42,8 @@ function binarySearch(arr, value){
     }
     return -1
 }
+
+function naiveStringSearch(string, frag) {
+    if (string===frag) return true
+    
+}
