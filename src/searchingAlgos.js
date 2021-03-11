@@ -45,5 +45,13 @@ function binarySearch(arr, value){
 
 function naiveStringSearch(string, frag) {
     if (string===frag) return true
-    
+    let check = ""
+    for (let i=0; i<string.length; i++) {
+        for (let j=0; j<frag.length; j++) {
+            if (string[i]===frag[j]) {
+                check = check.concat(string[i])
+            }
+            if (frag===check) return true
+        }
+    }
 }
