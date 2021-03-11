@@ -47,11 +47,14 @@ function naiveStringSearch(string, frag) {
     if (string===frag) return true
     let check = ""
     for (let i=0; i<string.length; i++) {
+        let newI = i 
         for (let j=0; j<frag.length; j++) {
-            if (string[i]===frag[j]) {
+            if (string[newI]===frag[j]) {
                 check = check.concat(string[i])
-            }
+                newI++
+            } else { break }
             if (frag===check) return true
         }
     }
+    return false
 }
