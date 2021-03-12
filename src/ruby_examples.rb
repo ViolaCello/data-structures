@@ -68,3 +68,19 @@ puts "line 28"
     puts "last line, -1"
     return -1
 end
+
+def naiveStringSearch(string, frag) 
+    count = 0
+    s = string.length - 1
+    f = frag.length - 1
+    for i in 0..s do 
+        for j in 0..f do 
+          if frag[j] != string[i+j]
+            break
+          end
+          
+            puts frag[j], string[i+j]
+        end
+    end
+  end
+    
