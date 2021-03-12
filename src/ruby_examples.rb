@@ -77,10 +77,13 @@ def naiveStringSearch(string, frag)
         for j in 0..f do 
           if frag[j] != string[i+j]
             break
-          end
-          
-            puts frag[j], string[i+j]
+          elsif j==f 
+            count += 1
         end
     end
+    
   end
+  return count
+end
+
     
