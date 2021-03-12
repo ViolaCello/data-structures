@@ -59,3 +59,16 @@ function naiveStringSearch(string, frag) {
     }
     return false
 }
+
+// even better
+function naiveStringSearchFaster(string, frag) {
+    let count = 0
+   for(let i=0; i<string.length-frag.length+1; i++) {
+       let check = string.slice(i,i+frag.length)
+       console.log(check)
+       if (check===frag) {
+           count++
+       }
+   }
+  return count
+}
