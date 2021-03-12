@@ -49,7 +49,7 @@ function naiveStringSearch(string, frag) {
     for (let i=0; i<string.length; i++) {
         let newI = i 
         for (let j=0; j<frag.length; j++) {
-            console.log("i", i, "newI",newI,"check",check, "j",j)
+           // console.log("i", i, "newI",newI,"check",check, "j",j)
             if (string[newI]===frag[j]) {
                 check = check.concat(string[newI])
                 newI++
