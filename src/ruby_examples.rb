@@ -85,7 +85,7 @@ def naiveStringSearch(string, frag)
   return count
 end
 
-def bubbleSort(arr)
+def bubble_sort(arr)
     for array in arr do
         j=0;
         while j<arr.length-1 do
@@ -98,4 +98,25 @@ def bubbleSort(arr)
         end
     end
     return arr 
+end
+
+# bubbleSort with better optimization
+def bubble_sort_optimized(arr)
+    i = 0
+    while i<arr.length do 
+        swap = false
+        j = 0
+        while j<arr.length - 1 - i do 
+            if arr[j]>arr[j+1]
+                [arr[j],arr[j+1]] = [arr[j+1], arr[j]]
+                swap = true
+            end
+            j += 1
+        end
+        if !swap 
+            break
+        end
+        i += 1
+    end
+    return arr
 end
