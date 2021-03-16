@@ -31,17 +31,32 @@ function bubbleSortOptimized(arr) {
 }
 
 // Selection Sort - continually move smallest value to the beginning of the array
-function selectionSort(arr) {
-    let min = []
+function selectionSortFirstTry(arr) {
+    let min = [] // this was unnecessary
     for (let i=0; i<arr.length; i++) {
         min = [arr[i+1], i+1]
         for(let j=i+1; j<arr.length; j++) {
             if(arr[j]<min[0]) {
                  min = [arr[j], j]
             }
-        }
+        }   
         if (min[0]<arr[i]) {
             [arr[i], arr[min[1]]] = [arr[min[1]], arr[i]]
+        }
+    }
+    return arr
+}
+// a better selection sort -- I didn't need to store the index AND value
+function selectionSort(arr) {
+    for (let i = 0; i<arr.length; i++) {
+        let min = i
+        for (let j=i+1; j<arr.length; j++) {
+            if (arr[j]<arr[min]) {
+                min = j
+            }
+        }
+        if (arr[min]<arr[i]) {
+            [arr[i], arr[min]] = [arr[min], arr[i]]
         }
     }
     return arr
