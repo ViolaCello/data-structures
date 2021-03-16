@@ -125,3 +125,22 @@ def bubble_sort_optimized(arr)
     puts arr
     return arr
 end
+
+def selection_sort(arr)
+    arr.each_with_index |val, index | do 
+        min = index
+        j = index + 1
+        while j<arr.length do
+            if arr[j]<arr[min]
+                min = j
+            end
+            j++
+        end
+        if arr[index]>arr[min]
+            temp = arr[index]
+            arr[index] = arr[min]
+            arr[min] = temp
+        end
+    end
+    return arr
+end
