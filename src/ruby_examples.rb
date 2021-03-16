@@ -145,3 +145,15 @@ def selection_sort(arr)
     end
     return arr
 end
+
+def insertion_sort(arr) 
+    arr.each_with_index do |v, i| 
+        current_value = arr[i]
+        j = i-1
+        while j>=0 && arr[j] > current_value do 
+            arr[j+1] = arr[j]
+            arr[j] = current_value
+        end
+    end
+    return arr 
+end
