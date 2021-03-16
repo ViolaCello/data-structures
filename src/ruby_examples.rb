@@ -107,8 +107,11 @@ def bubble_sort_optimized(arr)
         swap = false
         j = 0
         while j<arr.length - 1 - i do 
+            puts arr
             if arr[j]>arr[j+1]
-                [arr[j],arr[j+1]] = [arr[j+1], arr[j]]
+                temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
                 swap = true
             end
             j += 1
@@ -117,6 +120,8 @@ def bubble_sort_optimized(arr)
             break
         end
         i += 1
+        puts "end Cycle"
     end
+    puts arr
     return arr
 end
