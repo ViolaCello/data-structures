@@ -159,3 +159,28 @@ def insertion_sort(arr) # best for sorting information feeding in live/streaming
     end
     return arr 
 end
+
+# Merge two sorted arrays
+def merge(arr1, arr2)
+    result = []
+    i = 0
+    j = 0
+    while i<arr1.length && j<arr2.length do 
+        if arr1[i]<=arr2[j]
+            result.push(arr1[i])
+            i += 1
+        else 
+            result.push(arr2[j])
+            j += 1
+        end
+    end
+    while i<arr1.length do
+        result.push(arr1[i])
+        i += 1
+    end
+    while j<arr2.length do
+        result.push(arr2[j])
+        j += 1
+    end
+    return result
+end
