@@ -74,4 +74,18 @@ function insertionSort(arr) {
     return arr
 }
 
-// [4,3,9,6]
+//merge two sorted arrays
+
+function mergeSorted(arr1, arr2) {
+    let result = []
+    let i = 0
+    let j = 0
+   while (arr1.length !=0 && arr2.length !=0) {
+       if (arr1[0]<arr2[0]) {
+            result.push(arr1.shift())
+       } else {
+           result.push(arr2.shift())
+       }
+   }
+   return result.concat(arr1).concat(arr2)
+}

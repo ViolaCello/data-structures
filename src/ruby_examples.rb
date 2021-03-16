@@ -101,7 +101,7 @@ def bubble_sort(arr)
 end
 
 # bubbleSort with better optimization
-def bubble_sort_optimized(arr)
+def bubble_sort_optimized(arr) # best for mostly sorted arrays
     i = 0
     while i<arr.length do 
         swap = false
@@ -126,7 +126,7 @@ def bubble_sort_optimized(arr)
     return arr
 end
 
-def selection_sort(arr)
+def selection_sort(arr) 
     arr.each_with_index do |val, index | 
         min = index
         j = index + 1
@@ -146,13 +146,15 @@ def selection_sort(arr)
     return arr
 end
 
-def insertion_sort(arr) 
+
+def insertion_sort(arr) # best for sorting information feeding in live/streaming
     arr.each_with_index do |v, i| 
         current_value = arr[i]
         j = i-1
         while j>=0 && arr[j] > current_value do 
             arr[j+1] = arr[j]
             arr[j] = current_value
+            j -= 1
         end
     end
     return arr 
