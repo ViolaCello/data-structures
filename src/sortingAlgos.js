@@ -102,11 +102,12 @@ function mergeSort(arr) {
 function pivot(arr) {
     let pivot = arr[0]
     let result = 0
+    let lowIndex = 0
     for (let i = 1; i<arr.length; i++) {
         if (pivot>arr[i]) {
             let temp = arr[i]
-            result = i
-            arr[i-1] = temp
+            result++
+            arr[result-1] = temp
             arr[i] = pivot
         }
     }
