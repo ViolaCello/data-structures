@@ -99,10 +99,10 @@ function mergeSort(arr) {
 }
 
 // return index of where first item would be sorted to
-function pivot(arr) {
-    let pivot = arr[0]
+function pivot(arr, start = 0, end = arr.length-1) {
+    let pivot = arr[start]
     let pivotIndex = 0
-    for (let i = 1; i<arr.length; i++) {
+    for (let i = 1; i<= end; i++) {
         if (pivot>arr[i]) {
             pivotIndex++
             let temp = arr[i]
