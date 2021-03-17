@@ -184,3 +184,13 @@ def merge(arr1, arr2)
     end
     return result
 end
+
+def merge_sort(arr)
+    if arr.length<=1 
+        return arr
+    end
+    mid = (arr.length/2).floor
+    left = merge_sort(arr.slice(0,mid))
+    right = merge_sort(arr.slice(mid, arr.length))
+    return merge(left, right) 
+end
