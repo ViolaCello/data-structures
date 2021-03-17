@@ -97,3 +97,18 @@ function mergeSort(arr) {
     let right = mergeSort(arr.slice(mid))
     return mergeSorted(left, right)
 }
+
+// return index of where first item would be sorted to
+function pivot(arr) {
+    let pivot = arr[0]
+    let result = 0
+    for (let i = 1; i<arr.length; i++) {
+        if (pivot>arr[i]) {
+            let temp = arr[i]
+            result = i
+            arr[i-1] = temp
+            arr[i] = pivot
+        }
+    }
+    return arr
+}
