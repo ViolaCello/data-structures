@@ -89,3 +89,11 @@ function mergeSorted(arr1, arr2) {
    }
    return result.concat(arr1).concat(arr2)
 }
+
+function mergeSort(arr) {
+    if (arr.length<=1) return arr
+    let mid = Math.floor(arr.length/2)
+    let left = mergeSort(arr.slice(0,mid))
+    let right = mergeSort(arr.slice(mid))
+    return mergeSorted(left, right)
+}
