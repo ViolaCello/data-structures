@@ -101,15 +101,16 @@ function mergeSort(arr) {
 // return index of where first item would be sorted to
 function pivot(arr) {
     let pivot = arr[0]
-    let result = 0
-    let lowIndex = 0
+    let pivotIndex = 0
     for (let i = 1; i<arr.length; i++) {
         if (pivot>arr[i]) {
+            pivotIndex++
             let temp = arr[i]
-            result++
-            arr[result-1] = temp
-            arr[i] = pivot
+            arr[i] = arr[pivotIndex]
+            arr[pivotIndex] = temp
         }
     }
-    return arr
+    arr[0] = arr[pivotIndex]
+            arr[pivotIndex] = pivot 
+    return pivotIndex
 }
