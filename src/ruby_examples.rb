@@ -237,3 +237,7 @@ def get_digit(num, place)
     end
     return num % 10
 end
+
+def digit_count(n)
+    return (Math.log10(n.abs)).floor()+1
+end
