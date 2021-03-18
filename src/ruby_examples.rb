@@ -194,3 +194,22 @@ def merge_sort(arr)
     right = merge_sort(arr.slice(mid, arr.length))
     return merge(left, right) 
 end
+
+def pivot(arr, start=0, end = arr.length-1)
+    def swap(arr, index1, index2)
+        temp = arr[index1]
+            arr[index1] = arr[index2]
+            arr[index2] = temp
+    end
+    pivot = arr[start]
+    swap_idx = start
+    i = start+1
+    while i<=end do
+        if pivot>arr[i]
+            swap_idx += 1
+            swap(arr, swap_idx, i)
+        end
+    end
+    swap(arr, start, swap_idx)
+    return swap_idx
+end
