@@ -159,7 +159,7 @@ function radixSort(arr) {
        let mixedArr = split(arr)
         let positive = radixSort(mixedArr[0])
         let negative = radixSort(mixedArr[1])
-        return negative.concat(positive)
+        return quickSort(negative).concat(positive)
     }
     let loop = mostDigits(arr)
     
