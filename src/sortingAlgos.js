@@ -155,6 +155,12 @@ function mostDigits(arr){
 }
 
 function radixSort(arr) {
+    if (constainsMixed(arr)) {
+       let mixedArr = split(arr)
+        let positive = radixSort(mixedArr[0])
+        let negative = radixSort(mixedArr[1])
+        return negative.concat(positive)
+    }
     let loop = mostDigits(arr)
     
     for (let i=0; i<loop; i++) {
@@ -183,4 +189,16 @@ function containsMixed(arr) {
     }
     }
     return false
+}
+
+function split(arr) {
+    let positive = []
+    let negative = []
+    for (let i = 0; i<arr.length; i++) {
+        if (arr[i]>=0) {
+            positive.push(arr[i])
+        } else 
+        negative.push(arr[i])
+    }
+    return [positive, negative]
 }
