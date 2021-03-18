@@ -146,3 +146,14 @@ function pivot(arr, start = 0, end = arr.length - 1) {
       if (n===0) return 1
     return Math.floor(1 + Math.log10(Math.abs(n)))
 }
+
+// given an array of integers, what is the maximum amount of digits in the array
+function mostDigits(arr){
+    let max = 0
+    for (let i = 0; i<arr.length; i++ ) {
+        if ( digitCount(arr[i]) > max) {
+            max = digitCount(arr[i]) 
+        }
+    }
+    return max
+}
