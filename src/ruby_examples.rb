@@ -223,3 +223,16 @@ def quick_sort(arr, left = 0, right = arr.length-1)
     end
     return arr
 end
+
+
+# beginning Radix Sort
+# helper method to find n-th digit of an integer
+# interger % 10 = last digit, so x amount of times
+def get_digit(num, place)
+    i = place
+    while i>1 do 
+        num = num / 10
+        i -= 1
+    end
+    return num % 10
+end
