@@ -133,3 +133,9 @@ function pivot(arr, start = 0, end = arr.length - 1) {
        return arr;
   } 
              
+  function getDigit(num, place) {
+      for (let i = place; i > 1; i--) {
+          num = num / 10
+      }
+      return Math.floor (num % 10)
+  }
