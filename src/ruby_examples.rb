@@ -214,3 +214,12 @@ def pivot(arr, start=0, last = arr.length-1)
     swap(arr, start, swap_idx)
     return swap_idx
 end
+
+def quick_sort(arr, left = 0, right = arr.length-1)
+    if left<right
+        pivot_index = pivot(arr, left, right)
+        quick_sort(arr, left, pivot_index-1)
+        quick_sort(arr, pivot_index+1, right)
+    end
+    return arr
+end
