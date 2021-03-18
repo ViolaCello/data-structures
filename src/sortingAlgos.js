@@ -133,12 +133,10 @@ function pivot(arr, start = 0, end = arr.length - 1) {
        return arr;
   } 
              
-  function getDigit(num, place) {
-    for (let i = place; i > 1; i--) {
-        num = Math.abs(num / 10)
-    }
-    return Math.floor (num % 10)
-}
+  function getDigit(num, i) {
+    return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+  }
+  
 
 
   // count how many numbers are in a particular digit
@@ -156,4 +154,18 @@ function mostDigits(arr){
         }
     }
     return max
+}
+
+function radixSort(arr) {
+    let loop = mostDigits(arr)
+    
+    for (let i=0; i<loop; i++) {
+        let bucket = Array.from({length:10}, () => [])
+        for (let j = 0; j<arr.length; j++) {
+            let finalN = getDigit(arr[j],i)
+            bucket[finalN].push(arr[j])
+        }
+     arr = [].concat(...bucket)
+    }
+    return arr
 }
