@@ -229,6 +229,7 @@ end
 # helper method to find n-th digit of an integer
 # interger % 10 = last digit, so x amount of times
 def get_digit(num, place)
+    num = num.abs()
     i = place
     while i>1 do 
         num = num / 10
