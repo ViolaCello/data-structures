@@ -137,8 +137,6 @@ function pivot(arr, start = 0, end = arr.length - 1) {
     return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
   }
   
-
-
   // count how many numbers are in a particular digit
   function digitCount(n){
       if (n===0) return 1
@@ -168,4 +166,21 @@ function radixSort(arr) {
      arr = [].concat(...bucket)
     }
     return arr
+}
+
+// create helper function to check if there are negative numbers or not
+function containsMixed(arr) {
+    let positive = 0
+    let negative = 0
+    for (let i=0; i<arr.length; i++) {
+        if (arr[i]>=0) {
+            positive++
+        } else {
+        negative++
+    }
+    if (positive>0 && negative>0) {
+      return true
+    }
+    }
+    return false
 }
