@@ -244,3 +244,13 @@ def digit_count(n)
     end
     return (Math.log10(n.abs)).floor()+1
 end
+
+def most_digits(arr)
+    max = 0
+    arr.each_with_index do |v, i|
+        if (digit_count(v) > max)
+            max = digit_count(v)
+        end
+    end
+    return max
+end
