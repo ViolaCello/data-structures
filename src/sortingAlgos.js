@@ -155,11 +155,21 @@ function mostDigits(arr){
 }
 
 function radixSort(arr) {
-    if (constainsMixed(arr)) {
+    if (containsMixed(arr)) {
        let mixedArr = split(arr)
         let positive = radixSort(mixedArr[0])
-        let negative = radixSort(mixedArr[1])
-        return quickSort(negative).concat(positive)
+        let negative = radixSort(mixedArr[1]) // this then needs to be reversed
+     //   return quickSort(negative).concat(positive)
+       let left = 0
+       let right = negative.length-1
+       while (left<right) {
+           let temp = negative[left]
+           negative[left]=negative[right]
+           negative[right]=temp
+           left++
+           right--
+       }
+       return negative.concat(positive)
     }
     let loop = mostDigits(arr)
     
