@@ -134,8 +134,14 @@ function pivot(arr, start = 0, end = arr.length - 1) {
   } 
              
   function getDigit(num, place) {
-      for (let i = place; i > 1; i--) {
-          num = num / 10
-      }
-      return Math.floor (num % 10)
-  }
+    for (let i = place; i > 1; i--) {
+        num = Math.abs(num / 10)
+    }
+    return Math.floor (num % 10)
+}
+
+
+  // count how many numbers are in a particular digit
+  function digitCount(n){
+    return Math.floor(1 + Math.log10(Math.abs(n)))
+}
