@@ -195,7 +195,7 @@ def merge_sort(arr)
     return merge(left, right) 
 end
 
-def pivot(arr, start=0, end = arr.length-1)
+def pivot(arr, start=0, last = arr.length-1)
     def swap(arr, index1, index2)
         temp = arr[index1]
             arr[index1] = arr[index2]
@@ -204,11 +204,12 @@ def pivot(arr, start=0, end = arr.length-1)
     pivot = arr[start]
     swap_idx = start
     i = start+1
-    while i<=end do
+    while i<=last do
         if pivot>arr[i]
             swap_idx += 1
             swap(arr, swap_idx, i)
         end
+        i += 1
     end
     swap(arr, start, swap_idx)
     return swap_idx
