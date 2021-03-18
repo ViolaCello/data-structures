@@ -143,5 +143,6 @@ function pivot(arr, start = 0, end = arr.length - 1) {
 
   // count how many numbers are in a particular digit
   function digitCount(n){
+      if (n===0) return 1
     return Math.floor(1 + Math.log10(Math.abs(n)))
 }

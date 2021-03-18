@@ -239,5 +239,8 @@ def get_digit(num, place)
 end
 
 def digit_count(n)
+    if n == 0 
+        return 1
+    end
     return (Math.log10(n.abs)).floor()+1
 end
