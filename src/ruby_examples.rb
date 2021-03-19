@@ -259,7 +259,7 @@ def radix_sort(arr)
     loop = most_digits(arr)
     i = 0
     while i<loop do 
-
+        bucket = Array.new(10).map{ |e| [] }
         i += 1
     end
 end
