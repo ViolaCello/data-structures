@@ -260,6 +260,15 @@ def radix_sort(arr)
         mixed_array = split(arr)
         positive = radix_sort(mixed_array[0])
         negative = radix_sort(mixed_array[1])
+        left = 0
+        right = negative.length-1
+        while left<right do
+            temp = negative[left]
+            negative[left] = negative[right]
+            negative[right] = temp
+            left += 1
+            right -= 1
+        end
         return negative.concat(positive)
     end
     loop = most_digits(arr)
