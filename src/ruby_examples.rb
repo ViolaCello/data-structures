@@ -272,3 +272,20 @@ def radix_sort(arr)
     end
     return arr
 end
+
+def contains_mixed(arr)
+    postive = 0
+    negative = 0
+    for a in arr do
+        if a>=0
+            postive += 1
+        else 
+            negative += 1
+        end
+        if positive>0 && negative >0
+            return true
+            break
+        end
+    end
+    return false 
+end
