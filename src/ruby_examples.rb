@@ -260,6 +260,15 @@ def radix_sort(arr)
     i = 0
     while i<loop do 
         bucket = Array.new(10).map{ |e| [] }
+        j = 0
+        while j<arr.length do 
+            final_number = get_digit(arr[j], i)
+            bucket[final_number].push(arr[j])
+            j += 1
+        end
+
+        arr + bucket
         i += 1
     end
+    return arr
 end
