@@ -256,6 +256,12 @@ def most_digits(arr)
 end
 
 def radix_sort(arr)
+    if contains_mixed(arr) 
+        mixed_array = split(arr)
+        positive = radix_sort(mixed_array[0])
+        negative = radix_sort(mixed_array[1])
+        return negative.concat(positive)
+    end
     loop = most_digits(arr)
     i = 0
     while i<loop do 
