@@ -267,7 +267,7 @@ def radix_sort(arr)
             j += 1
         end
 
-        arr + bucket
+        arr = [].concat(*bucket)
         i += 1
     end
     return arr
