@@ -247,9 +247,9 @@ end
 
 def most_digits(arr)
     max = 0
-    arr.each_with_index do |v, i|
-        if (digit_count(v) > max)
-            max = digit_count(v)
+    arr.each do |value|
+        if (digit_count(value) > max)
+            max = digit_count(value)
         end
     end
     return max
