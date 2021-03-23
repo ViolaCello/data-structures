@@ -96,14 +96,32 @@ class SinglyLinkedList
     return current_node
    end
 
-   def set(val, index)
+   def set(index, val)
     node = get(index)
     if node
         node.val = val
         return true
-    else
+    end
+    return false
+   end
+
+   def insert(index, val)
+    if index<0 || index>@length 
         return false
     end
+    if index==0 
+        return !!unshift(val)
+    end
+    if index==@length
+        return !!push(val)
+    end
+    new_node = Node.new (val)
+    prev_node = get(index-1)
+    temp = prev_node.next
+    prev_node.next = new_node
+    new_node.next = temp
+    @length += 1
+    return true
    end
 
 end # end Class

@@ -77,14 +77,26 @@ class SinglyLinkedList {
         return currentNode
     }
 
-    set(val, index) {
+    set(index, val) {
         let node = this.get(index)
         if (node) {
             node.val = val
             return true
-        } else {
+        } 
             return false
-        }
+    }
+
+    insert(index, val) {
+        if (index<0 || index>length) return false
+        if (index===0) return !!this.unshift(val)
+        if (index==this.length) return !!this.push(val)
+        let newNode = new Node(val)
+        let preNode = this.get(index-1)
+        let temp = preNode.next
+        preNode.next = newNode
+        newNode.next = temp
+        this.length++
+        return true
     }
 
 }
