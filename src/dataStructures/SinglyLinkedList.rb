@@ -33,6 +33,13 @@ class SinglyLinkedList
         return nil 
     end
     current = @head
+    if current==@tail
+      @head = nil
+       @tail = nil
+       @length = 0
+       return current
+       current = nil
+    end
     while current do 
         new_tail = current
         current = current.next
@@ -40,6 +47,8 @@ class SinglyLinkedList
             @tail = new_tail
             @tail.next = nil
             @length -= 1
+            puts "line 43:"
+            puts @length
             if @length<=0
                 @head = nil
                 @tail = nil
