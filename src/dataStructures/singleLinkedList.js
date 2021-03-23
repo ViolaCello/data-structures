@@ -49,6 +49,9 @@ class SinglyLinkedList {
         let oldHead = this.head
         this.head = this.head.next
         this.length--
+        if (this.length==0) {
+            this.tail = null
+        }
         return oldHead
     }
 

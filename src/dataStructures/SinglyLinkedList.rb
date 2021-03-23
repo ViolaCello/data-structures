@@ -58,5 +58,16 @@ class SinglyLinkedList
     end
    end
 
+   def shift
+    if @head==nil
+        return nil 
+    end 
+    old_head = @head
+    @head = @head.next
+    @length -= 1
+    if @length==0
+        @tail = nil
+    end
+   end
 
 end # end Class
