@@ -70,4 +70,17 @@ class SinglyLinkedList
     end
    end
 
+   def unshift(val)
+    new_node = Node.new (val)
+    if !@head
+        @head = new_node
+        @tail = new_node
+    else 
+        new_node.next = @head
+        @head = new_node
+    end
+    @length += 1
+    return self
+   end
+
 end # end Class
