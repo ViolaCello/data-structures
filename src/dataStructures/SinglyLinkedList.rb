@@ -27,4 +27,28 @@ class SinglyLinkedList
        @length += 1
        return self 
    end
-end
+
+   def pop
+    if @head==nil
+        return nil 
+    end
+    current = @head
+    while current do 
+        new_tail = current
+        current = current.next
+        if current==@tail
+            @tail = new_tail
+            @tail.next = nil
+            @length -= 1
+            if @length<=0
+                @head = nil
+                @tail = nil
+            end
+            return current
+            break
+        end
+    end
+   end
+
+
+end # end Class
