@@ -47,7 +47,6 @@ class SinglyLinkedList
             @tail = new_tail
             @tail.next = nil
             @length -= 1
-            puts "line 43:"
             puts @length
             if @length<=0
                 @head = nil
