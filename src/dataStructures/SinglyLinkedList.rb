@@ -83,4 +83,17 @@ class SinglyLinkedList
     return self
    end
 
+   def get(index)
+    if index>=@length || index<0 
+        return nil
+    end
+    i = 0
+    current_node = @head
+    while i<index do
+        current_node = current_node.next
+        i += 1
+    end
+    return current_node
+   end
+
 end # end Class
