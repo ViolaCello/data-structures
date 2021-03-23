@@ -96,4 +96,14 @@ class SinglyLinkedList
     return current_node
    end
 
+   def set(val, index)
+    node = get(index)
+    if node
+        node.val = val
+        return true
+    else
+        return false
+    end
+   end
+
 end # end Class
