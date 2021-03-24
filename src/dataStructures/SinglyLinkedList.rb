@@ -124,4 +124,17 @@ class SinglyLinkedList
     return true
    end
 
+def remove(index)
+    if index<0 || index>@length 
+        return nil 
+    end
+    return shift() if index==0
+    return pop() if index==@length-1
+    removed_node = get(index)
+    prev_node = get(index-1)
+    prev_node.next = removed_node.next
+    return removed_node
+end
+
+
 end # end Class
