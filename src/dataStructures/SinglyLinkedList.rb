@@ -136,5 +136,20 @@ def remove(index)
     return removed_node
 end
 
+def reverse
+        current_node = @head
+        @head = @tail
+        @tail = current_node
+        prev_node = nil # needs to be nil so first time through loop @tail points to nil
+        i = 0
+        while i<@length do 
+            next_node = current_node.next
+            current_node.next = prev_node
+            prev_node = current_node
+            current_node = next_node
+            i += 1
+        end
+        return self 
+end
 
 end # end Class
