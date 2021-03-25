@@ -47,13 +47,11 @@ class SinglyLinkedList
             @tail = new_tail
             @tail.next = nil
             @length -= 1
-            puts @length
             if @length<=0
                 @head = nil
                 @tail = nil
             end
-            return current
-            break
+            return current  
         end
     end
    end
