@@ -104,10 +104,25 @@ class SinglyLinkedList {
         if (index==this.length-1) return this.pop()
         if (index===0) return this.shift()
         let preNode = this.get(index-1)
-        let removedNode = this.get(index)
+        let removedNode = preNode.next
         preNode.next = removedNode.next
         this.length--
         return removedNode
+    }
+
+    reverse() {
+        let currentNode = this.head
+        this.head = this.tail
+        this.tail = currentNode
+        let next
+        let prev = null // needs to be Null because on the first time through the loop, the .next of .tail needs to = null
+        for (let i = 0; i<this.length; i++) {
+            next = currentNode.next
+            currentNode.next = prev
+            prev = currentNode
+            currentNode = next
+        }
+        return this
     }
 
 }

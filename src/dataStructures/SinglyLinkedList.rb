@@ -130,8 +130,8 @@ def remove(index)
     end
     return shift() if index==0
     return pop() if index==@length-1
-    removed_node = get(index)
     prev_node = get(index-1)
+    removed_node = prev_node.next
     prev_node.next = removed_node.next
     return removed_node
 end
