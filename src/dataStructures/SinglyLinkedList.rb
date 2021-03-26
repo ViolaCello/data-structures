@@ -57,15 +57,11 @@ class SinglyLinkedList
    end
 
    def shift
-    if @head==nil
-        return nil 
-    end 
+    return nil if @head==nil
     old_head = @head
     @head = @head.next
     @length -= 1
-    if @length==0
-        @tail = nil
-    end
+    @tail = nil if @length==0
    end
 
    def unshift(val)
@@ -107,12 +103,8 @@ class SinglyLinkedList
     if index<0 || index>@length 
         return false
     end
-    if index==0 
-        return !!unshift(val)
-    end
-    if index==@length
-        return !!push(val)
-    end
+    return !!unshift(val) if index==0 
+    return !!push(val) if index==@length
     new_node = Node.new (val)
     prev_node = get(index-1)
     temp = prev_node.next
@@ -123,9 +115,7 @@ class SinglyLinkedList
    end
 
 def remove(index)
-    if index<0 || index>@length 
-        return nil 
-    end
+    return nil  if index<0 || index>@length 
     return shift() if index==0
     return pop() if index==@length-1
     prev_node = get(index-1)
