@@ -29,9 +29,7 @@ class SinglyLinkedList
    end
 
    def pop
-    if @head==nil
-        return nil 
-    end
+    return nil if @head==nil
     current = @head
     if current==@tail
       @head = nil
@@ -62,6 +60,7 @@ class SinglyLinkedList
     @head = @head.next
     @length -= 1
     @tail = nil if @length==0
+    return old_head
    end
 
    def unshift(val)
@@ -140,4 +139,6 @@ def reverse
         return self 
 end
 
-end # end Class
+end 
+
+# @HEAD (start here) ---> Next Node, I point to ---> Next Node, I point to ---> @TAIL (end here)
