@@ -45,4 +45,19 @@ class DoublyLinkedList
     return old_tail
    end
 
+   def shift
+    return nil if !@head
+    old_head = @head
+    if length==1
+        @head = nil
+        @tail = nil
+    else 
+        @head = old_head.next
+        @head.prev = null
+        old_head.next = null
+    end
+    @length -= 1
+    return old_head
+   end
+
 end # end Class
