@@ -16,4 +16,19 @@ class DoublyLinkedList
        @length = 0
    end
 
+   def push(val)
+    new_node = Node.new(val)
+    if @length==0
+        @head = new_node
+        @tail = new_node
+    else 
+        temp = @tail
+        temp.next = new_node
+        new_node.prev = temp
+        @tail = new_node
+    end
+    @length += 1
+    return self
+   end
+
 end # end Class
