@@ -33,9 +33,9 @@ class DoublyLinkedList {
             this.head = null
             this.tail = null
         } else {
-            let newTail = this.tail.prev
-            newTail.next = null
-            this.tail = newTail
+            this.tail = oldTail.prev
+            this.tail.next = null
+            oldTail.prev = null
         }
         this.length--
         return oldTail
