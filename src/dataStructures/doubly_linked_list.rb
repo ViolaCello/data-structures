@@ -22,9 +22,8 @@ class DoublyLinkedList
         @head = new_node
         @tail = new_node
     else 
-        temp = @tail
-        temp.next = new_node
-        new_node.prev = temp
+        @tail.next = new_node
+        new_node.prev = @tail
         @tail = new_node
     end
     @length += 1
