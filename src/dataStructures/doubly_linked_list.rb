@@ -48,7 +48,7 @@ class DoublyLinkedList
    def shift
     return nil if !@head
     old_head = @head
-    if length==1
+    if @length==1
         @head = nil
         @tail = nil
     else 
