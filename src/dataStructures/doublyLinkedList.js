@@ -71,4 +71,18 @@ class DoublyLinkedList {
         return this
     }
 
+    get(index) {
+        if (index<0 || index>= this.length) return null
+        if (index<=this.length/2) {
+            let i = 0
+            let current = this.head
+            while (i<index) {
+                let nextNode = current.next
+                current = nextNode
+                i++
+            }
+            return current.val
+        }
+    }
+
 }
