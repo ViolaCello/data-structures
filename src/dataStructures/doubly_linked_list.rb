@@ -91,7 +91,17 @@ class DoublyLinkedList
             i -= 1
         end
     end
-    return current.val
+    return current
+   end
+
+   def set(index, val) 
+    node = get(index)
+    if !!node 
+        node.val = val
+        return true
+    else 
+        return false
+    end
    end
 
 end # end Class

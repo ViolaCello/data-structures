@@ -79,7 +79,6 @@ class DoublyLinkedList {
             current = this.head
             while (i<index) {
                 current = current.next
-                nextNode
                 i++
             }
         } else {
@@ -90,7 +89,15 @@ class DoublyLinkedList {
                 i--
             }
         }
-        return current.val
+        return current
+    }
+
+    set(index, val) {
+     let node = get(index)
+     if (!!node) {
+         node.val = val 
+         return true
+     } else return false 
     }
 
 }
