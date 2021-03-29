@@ -78,16 +78,15 @@ class DoublyLinkedList {
             let i = 0
             current = this.head
             while (i<index) {
-                let nextNode = current.next
-                current = nextNode
+                current = current.next
+                nextNode
                 i++
             }
         } else {
             let i = this.length - 1
             current = this.tail
             while (i>index) {
-                let prevNode = current.prev
-                current = prevNode
+                current = current.prev
                 i--
             }
         }

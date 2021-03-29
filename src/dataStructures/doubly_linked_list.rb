@@ -80,16 +80,14 @@ class DoublyLinkedList
         i = 0
         current = @head
         while i<index do
-            next_node = current.next
-            current = next_node
+            current = current.next
             i += 1
         end
     else 
         i = @length - 1
         current = @tail
         while i>index do
-            prev_node = current.prev
-            current = prev_node
+            current =  current.prev
             i -= 1
         end
     end
