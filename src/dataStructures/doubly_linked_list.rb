@@ -74,4 +74,26 @@ class DoublyLinkedList
     return self
    end
 
+   def get(index)
+    return nil if index<0 || index>=@length
+    if index<=@length/2
+        i = 0
+        current = @head
+        while i<index do
+            next_node = current.next
+            current = next_node
+            i += 1
+        end
+    else 
+        i = @length - 1
+        current = @tail
+        while i>index do
+            prev_node = current.prev
+            current = prev_node
+            i -= 1
+        end
+    end
+    return current.val
+   end
+
 end # end Class
