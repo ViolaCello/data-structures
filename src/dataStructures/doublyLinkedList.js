@@ -51,7 +51,6 @@ class DoublyLinkedList {
         this.head = oldHead.next
         this.head.prev = null
         oldHead.next = null
-        
         }
     this.length--
     return oldHead
@@ -129,5 +128,40 @@ class DoublyLinkedList {
         this.length--
         return removedNode
     }
+
+    reverse() {
+        if(this.length === 0){
+             return null;
+         }
+         else if(this.length > 1){
+             let currNode = this.head;
+             let prevNode = null;
+             let nextNode = null;
+   
+             for(let i = 0; i < this.length; i++){
+                 prevNode  = currNode.prev;
+                 nextNode = currNode.next;
+   
+                 if(prevNode == null){
+                     this.tail = currNode;
+                     currNode.next = null;
+                     currNode.prev = nextNode;
+                 }
+                 else if(nextNode == null){
+                     this.head = currNode;
+                     currNode.prev = null;
+                     currNode.next = prevNode;
+                 }
+                 else{
+                     currNode.next = prevNode;
+                     currNode.prev = nextNode;
+                 }
+   
+                 currNode = nextNode;
+             }
+         } return this
+     }
+   
+
 
 }
