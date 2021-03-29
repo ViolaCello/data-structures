@@ -53,8 +53,8 @@ class DoublyLinkedList
         @tail = nil
     else 
         @head = old_head.next
-        @head.prev = null
-        old_head.next = null
+        @head.prev = nil
+        old_head.next = nil 
     end
     @length -= 1
     return old_head
@@ -117,6 +117,21 @@ class DoublyLinkedList
     after_new_node.prev = new_node
     @length += 1
     return true
+   end
+
+   def remove(index) 
+    return nil if index<0 || index>=@length
+    return shift() if index==0
+    return pop() if index==@length-1
+    removed_node = get(index)
+    prev_node = removed_node.prev
+    next_node = removed_node.next
+    prev_node.next = next_node
+    next_node.prev = prev_node
+    removed_node.next = nil
+    removed_node.prev = nil
+    @length -= 1
+    return removed_node
    end
 
 end # end Class

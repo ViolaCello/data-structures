@@ -124,6 +124,8 @@ class DoublyLinkedList {
         let afterNode = removedNode.next
         prevNode.next = afterNode
         afterNode.prev = prevNode
+        removedNode.prev = null
+        removedNode.next = null
         this.length--
         return removedNode
     }
