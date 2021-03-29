@@ -60,4 +60,18 @@ class DoublyLinkedList
     return old_head
    end
 
+   def unshift(val)
+    new_node = Node.new(val)
+    if @length==0 
+        @head = new_node
+        @tail = new_node
+    else 
+        @head.prev = new_node
+        new_node.next = @head
+        @head = new_node
+    end
+    @length += 1
+    return self
+   end
+
 end # end Class
