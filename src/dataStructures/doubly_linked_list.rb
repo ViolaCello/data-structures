@@ -134,4 +134,19 @@ class DoublyLinkedList
     return removed_node
    end
 
+   def reverse
+    node = @head
+    @head = @tail
+    @tail = node
+    i = 0
+    while i<@length do
+        prev = node.next
+        node.next = node.prev
+        node.prev = prev
+        node = prev
+        i += 1
+    end
+    return self
+   end
+
 end # end Class
