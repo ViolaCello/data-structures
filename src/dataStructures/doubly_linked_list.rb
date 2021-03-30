@@ -149,4 +149,12 @@ class DoublyLinkedList
     return self
    end
 
+   def print
+    node = @head
+    puts node.val
+    while (node = node.next)
+      puts node.val
+    end
+  end
+
 end # end Class
