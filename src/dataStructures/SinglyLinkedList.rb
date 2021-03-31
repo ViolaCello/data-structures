@@ -119,6 +119,7 @@ def remove(index)
     removed_node = prev_node.next
     prev_node.next = removed_node.next
     removed_node.next = nil
+    @length -= 1
     return removed_node
 end
 
