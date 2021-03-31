@@ -135,6 +135,7 @@ class DoublyLinkedList
    end
 
    def reverse
+    return self if @length < 2
     node = @head
     @head = @tail
     @tail = node
