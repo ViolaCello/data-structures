@@ -99,11 +99,9 @@ class SinglyLinkedList
    end
 
    def insert(index, val)
-    if index<0 || index>@length 
-        return false
-    end
+    return false if index<0 || index>@length 
     return !!unshift(val) if index==0 
-    return !!push(val) if index==@length
+    return !!push(val) if index==@length   
     new_node = Node.new (val)
     prev_node = get(index-1)
     temp = prev_node.next
@@ -120,6 +118,7 @@ def remove(index)
     prev_node = get(index-1)
     removed_node = prev_node.next
     prev_node.next = removed_node.next
+    removed_node.next = nil
     return removed_node
 end
 
