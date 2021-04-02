@@ -4,7 +4,8 @@ class Node {
     this.next = null
     }
 }
-// Stack is First In First Out
+// Stack is Last In First Out
+// Big O of Stack = Constant Time: Insertion O(1), Removal O(1)
 class Stack {   // using a Singly Linked List with push() adding to the beginning and pop() removing from the beginning
     constructor() {
         this.first = null
@@ -28,14 +29,11 @@ class Stack {   // using a Singly Linked List with push() adding to the beginnin
         pop() { // removes and returns the last entered Node (the front of the list)
             if (this.size===0) return null
             let oldHead = this.first
-            if (this.size===1) {
-                this.first = null
+            if (this.first===this.last) {
                 this.last = null
-            } else {
-                this.first = this.first.next
-            }
+            } 
+            this.first = this.first.next
             this.size--
-            oldHead.next = null
-            return oldHead
+            return oldHead.value
         }
 }
