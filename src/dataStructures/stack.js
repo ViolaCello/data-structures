@@ -5,7 +5,7 @@ class Node {
     }
 }
 
-class Stack {
+class Stack {   // using a Singly Linked List with push() adding to the beginning and pop() removing from the beginning
     constructor() {
         this.first = null
         this.last = null
@@ -22,7 +22,7 @@ class Stack {
             this.first = newNode
             newNode.next = oldHead
         }
-        this.size++
+        return ++this.size
     }
 
 }
