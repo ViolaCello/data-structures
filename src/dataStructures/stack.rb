@@ -30,4 +30,15 @@ class Stack
         return @size += 1
     end
 
+    def pop
+        return nil if @size==0
+        old_head = @first
+        if @first==@last
+            @last = nil
+        end
+        @first = @first.next
+        @size -= 1
+        return old_head
+    end
+
 end
