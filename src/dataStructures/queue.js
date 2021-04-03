@@ -24,4 +24,17 @@ class Queue {
         return ++this.size
     }
 
+    dequeue() {
+        if (!this.first) return null
+        oldHead = this.first
+        if (this.first===this.last) {
+            this.first = null
+            this.last = null
+        } else {
+            this.first = oldHead.next
+        }
+        this.size--
+        return oldHead
+    }
+
 }
