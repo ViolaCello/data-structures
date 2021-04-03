@@ -28,4 +28,17 @@ class Queue
         return @size += 1
     end
 
+    def dequeue
+        return nil if !@first
+        old_head = @first
+        if @first = @last
+            @first = nil
+            @last = nil
+        else 
+            @first = old_head.next
+        end
+        @size -= 1
+        return old_head
+    end
+
 end
