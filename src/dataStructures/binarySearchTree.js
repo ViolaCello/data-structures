@@ -18,7 +18,8 @@ class Node {
             }
            let current = this.root
            while (current) {
-               if (current.value<value) {
+               if (value===current.value) return undefined // this is one way to handle it.  Other way, create a counter for duplicates
+               if (current.value<value) { 
                    if (!current.right) {
                        current.right = newNode
                        current = null
