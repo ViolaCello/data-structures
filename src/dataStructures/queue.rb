@@ -7,7 +7,9 @@ class Node
     end
 end
 
-class Queue
+# Queue is First In First Out
+# Big O of Queue = Constant Time: Insertion O(1), Removal O(1)
+class Queue 
     attr_accessor :first, :last, :size
 
     def initialize
