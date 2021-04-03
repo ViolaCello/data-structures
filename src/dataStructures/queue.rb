@@ -31,12 +31,8 @@ class Queue
     def dequeue
         return nil if !@first
         old_head = @first
-        if @first = @last
-            @first = nil
-            @last = nil
-        else 
-            @first = old_head.next
-        end
+        @last = nil if @first == @last
+         @first = old_head.next
         @size -= 1
         return old_head
     end
