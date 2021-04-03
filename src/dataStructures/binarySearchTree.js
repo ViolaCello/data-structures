@@ -38,4 +38,25 @@ class Node {
            return this
         } 
 
+        find(value) {
+            if (!this.root) return false 
+            let current = this.root
+            while (current) {
+                if (current.value===value) return true
+                if (value > current.value) {
+                    if (!current.right) {
+                        return false
+                    } else {
+                        current = current.right
+                    }
+                } else {
+                    if (!current.left) {
+                        return false
+                    } else {
+                        current = current.left
+                    }
+                }
+            }
+        }
+
     }
