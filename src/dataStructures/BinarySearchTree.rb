@@ -76,15 +76,27 @@ class BinarySearchTree
     end
 
     def depth_first_search_preOrder
-        @result = [] # need @ because if scope of helper method
-        current = @root
+        @result = [] # need @ because of scope of helper method
         def travserse(node)
             @result.push(node.value)
             travserse(node.left) if !!node.left
             travserse(node.right) if !!node.right
         end
-        travserse(current)
+        travserse(@root)
         return @result 
     end
+
+    def depth_first_search_postOrder
+        @result = []
+        def travserse(node)
+            travserse(node.left) if !!node.left
+            travserse(node.right) if !!node.right
+            @result.push(node.value)
+        end
+        travserse(@root)
+        return @result
+    end
+
+    
 
 end
