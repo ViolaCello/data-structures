@@ -97,7 +97,7 @@ class Node {
             return result
         }
 
-        depthFirstSearchPostOrder() {  
+        depthFirstSearchInOrder() {  
             const result = []
             const traverse = (node) => {
                 if (!!node.left) traverse(node.left)
