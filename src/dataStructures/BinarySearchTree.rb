@@ -43,5 +43,19 @@ class BinarySearchTree
         return self
     end
 
+    def find(value)
+        return false if !@root
+        current = @root
+        while !!current do
+            return true if current.value == value
+            if value > current.value
+                return false if !current.right
+                current = current.right
+            else 
+                return false if !current.left
+                current = current.left
+            end
+        end
+    end
 
 end
