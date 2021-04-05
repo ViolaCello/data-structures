@@ -62,4 +62,17 @@ class BinarySearchTree
         end
     end
 
+    def breath_first_search
+        queue = []
+        result = []
+        queue.push(@root)
+        while queue.length != 0 do
+            dequeued = queue.shift()
+            result.push(dequeued)
+            queue.push(dequeued.left) if !!dequeued.left
+            queue.push(dequeued.right) if !!dequeued.right
+        end
+        return result
+    end
+
 end
