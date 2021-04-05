@@ -59,4 +59,20 @@ class Node {
             }
         }
 
+        // breath first search
+        // return all the values in a Binary Search Tree, touching all of them only once
+
+        bfSearch() {
+            let queue = []
+            let result = []
+            queue.push(this.root)
+            while (queue.length != 0) {
+                let dequeue = queue.shift()
+                result.push(dequeue)
+                if (!!dequeue.left) queue.push(dequeue.left)
+                if (!!dequeue.right) queue.push(dequeue.right)
+            }
+            return result
+        }
+
     }

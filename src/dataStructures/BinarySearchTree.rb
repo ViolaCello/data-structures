@@ -8,6 +8,10 @@ class Node
     end
 end
 
+# BIG O
+# Insertion O(log n) = average & best.  Worst is O(n)
+# Search O(log n) = average & best.  Worst is O(n)
+
 class BinarySearchTree
     attr_accessor :root
 
