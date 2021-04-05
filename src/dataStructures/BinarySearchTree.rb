@@ -97,6 +97,15 @@ class BinarySearchTree
         return @result
     end
 
-    
+    def depth_first_search_in_order
+        @result = []
+        def travserse(node)
+            travserse(node.left) if !!node.left
+            @result.push(node.value)
+            travserse(node.right) if !!node.right
+        end
+        travserse(@root)
+        return @result
+    end
 
 end
