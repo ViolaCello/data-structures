@@ -77,13 +77,23 @@ class Node {
 
         depthFirstSearchPreOrder() {
             const result = []
-            let current = this.root
             const traverse = (node) => {
                 result.push(node.value)
                 if (!!node.left) traverse(node.left)
                 if (!!node.right) traverse(node.right)
             }
-            traverse(current)
+            traverse(this.root)
+            return result
+        }
+
+        depthFirstSearchPostOrder() {  // returns the tree in reverse order(ish)
+            const result = []
+            const traverse = (node) => {
+                if (!!node.left) traverse(node.left)
+                if (!!node.right) traverse(node.right)
+                result.push(node.value)
+            }
+            traverse(this.root)
             return result
         }
 
