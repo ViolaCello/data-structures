@@ -27,7 +27,7 @@ class MaxBinaryHeap {
         let leftIndex = 2 * index + 1
         let rightIndex = 2 * index + 2
         if (!!leftIndex && !!rightIndex) {
-            if (this.values[leftIndex]>elemet && this.values[rightIndex]>element) {
+            if (this.values[leftIndex]>element && this.values[rightIndex]>element) {
                 if (this.values[leftIndex] > this.values[rightIndex]) {
                     this.values[index] = this.values[leftIndex]
                     this.values[leftIndex] = element
@@ -37,6 +37,31 @@ class MaxBinaryHeap {
                     this.values[rightIndex] = element
                     index = rightIndex
                 }
+            } else if (this.values[leftIndex]>element) {
+                this.values[index] = this.values[leftIndex]
+                    this.values[leftIndex] = element
+                    index = leftIndex 
+            } else  {
+                this.values[index] = this.values[rightIndex]
+                    this.values[rightIndex] = element
+                    index = rightIndex
+            }
+        } else if (!!leftIndex) {
+            if (this.values[leftIndex]>element) {
+                this.values[index] = this.values[leftIndex]
+                this.values[leftIndex] = element
+                index = leftIndex
+            } else {
+                break
+            }
+
+        } else if (!!rightIndex) {
+            if (this.values[rightIndex]>element) {
+                this.values[index] = this.values[rightIndex]
+                this.values[rightIndex] = element
+                index = rightIndex
+            } else {
+                break
             }
         }
     }
