@@ -10,9 +10,7 @@ class MaxBinaryHeap {
         let parentIndex 
         while (!!index) {
             parentIndex = Math.floor((index-1)/2)
-            if (this.values[parentIndex]>this.values[index]) {
-                break
-            }
+            if (this.values[parentIndex]>this.values[index]) break
             this.values[index] = this.values[parentIndex]
             this.values[parentIndex] = value
             index = parentIndex
