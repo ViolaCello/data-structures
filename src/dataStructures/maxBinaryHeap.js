@@ -18,4 +18,27 @@ class MaxBinaryHeap {
         return this
     }
 
+    extractMax() {
+        let max = this.values[0]
+        let tail = this.values.pop()
+        this.values[0] = tail
+        let index = 0
+        let element = this.values[index]
+        let leftIndex = 2 * index + 1
+        let rightIndex = 2 * index + 2
+        if (!!leftIndex && !!rightIndex) {
+            if (this.values[leftIndex]>elemet && this.values[rightIndex]>element) {
+                if (this.values[leftIndex] > this.values[rightIndex]) {
+                    this.values[index] = this.values[leftIndex]
+                    this.values[leftIndex] = element
+                    index = leftIndex
+                } else {
+                    this.values[index] = this.values[rightIndex]
+                    this.values[rightIndex] = element
+                    index = rightIndex
+                }
+            }
+        }
+    }
+
 }
