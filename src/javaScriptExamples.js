@@ -66,5 +66,19 @@ const countSmaller = function(nums) {
 // Given a non-negative integer num, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
 
 const numberOfSteps = function(num) {
-    
+    let count = 0
+  
+    const helper = (number) => {
+        if(number===0) {
+            return count
+        }
+        count++
+        if(number % 2 == 0) {
+            return helper(number/2)
+        } else {
+            return helper(number-1)
+        }
+    }
+    let result = helper(num)
+    return result
 }
