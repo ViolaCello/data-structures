@@ -48,5 +48,17 @@ const smallerNumbersThanCurrent = function(nums) {
 // You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i].
 
 const countSmaller = function(nums) {
-    
+    let result = []
+    let count = 0
+    for (let i = 0; i<nums.length - 1; i++) {
+        count = 0
+        for (let j=i+1; j<nums.length; j++) {
+            if (nums[i]>nums[j]) {
+                count++
+            }
+        }
+        result.push(count)
+    }
+    result.push(0)
+    return result
 }
