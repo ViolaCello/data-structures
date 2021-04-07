@@ -38,7 +38,9 @@ const smallerNumbersThanCurrent = function(nums) {
             if (i != j && nums[i]>nums[j]) {
                 count++
             }
-            result.push(count)
+            
         }
+        result.push(count)
     }
+    return result
 }
