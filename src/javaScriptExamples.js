@@ -86,5 +86,19 @@ const numberOfSteps = function(num) {
 // Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
 
 const merge = function(intervals) {
-    
+    let result = []
+    for (let i=0; i<intervals.length - 1; i++) {
+        let end = intervals[i][0]
+        let newArr = []
+        for (let j=i+1; j<intervals.length; j++) {
+            if (end>intervals[j][0]) {
+                newArr[0] = end
+                newArr[1] = intervals[j][1]
+                result.push(newArr)
+            } else {
+                result.push(intervals[i])
+                result.push(intervals[j])
+            }
+        }
+    } return result
 }
