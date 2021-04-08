@@ -88,7 +88,6 @@ const numberOfSteps = function(num) {
 const merge = function(intervals) {
     if (intervals.length<=1) return intervals
     intervals.sort((a,b) => (a[0] - b[0]))
-    let result = []
     let i = 0
     while (i<intervals.length - 1) {
         let j = i + 1
@@ -107,20 +106,20 @@ const merge = function(intervals) {
         if (!!swapped) {
             newArr[0] = intervals[i][0]
             newArr[1] = intervals[i][1]
-            result.push(newArr)
-            i = i + 2
-            if (i>=intervals.length - 1 && j!=intervals.length-1) {
-                result.push(intervals.pop())
-                break
-                }
+            intervals[i] = newArr
+            let removed = intervals.splice(j,1)
+          //  result.push(newArr)
+         //   i = i + 2
+            // if (i>=intervals.length - 1 && j!=intervals.length-1) {
+              //  result.push(intervals.pop())
+            //     break
+            //     }
         } else {
-            result.push(intervals[i])
-            result.push(intervals[j])
             i++
         }
     }
       
 
 
-       return result
+       return intervals
 }
