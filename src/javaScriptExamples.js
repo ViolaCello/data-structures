@@ -87,18 +87,23 @@ const numberOfSteps = function(num) {
 
 const merge = function(intervals) {
     let result = []
-    for (let i=0; i<intervals.length - 1; i++) {
-        let end = intervals[i][0]
+    let i = 0
+  
+    while (i<intervals.length - 1) {
+          let j = i+1
+        let end = intervals[i][1]
         let newArr = []
-        for (let j=i+1; j<intervals.length; j++) {
+        
             if (end>intervals[j][0]) {
-                newArr[0] = end
+                newArr[0] = intervals[i][0]
                 newArr[1] = intervals[j][1]
                 result.push(newArr)
+                i = i + 2
             } else {
                 result.push(intervals[i])
                 result.push(intervals[j])
+                i++
             }
-        }
+        
     } return result
 }
