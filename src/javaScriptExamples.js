@@ -87,12 +87,18 @@ const numberOfSteps = function(num) {
 
 const merge = function(intervals) {
     if (intervals.length<=1) return intervals
+  
     let result = []
     let i = 0
     while (i<intervals.length - 1) {
         let j = i + 1
         let swapped = false
         let newArr = []
+        if (intervals[0][0]>intervals[1][0] && intervals[0][1]>intervals[1][1]) {
+            let temp = intervals[0]
+            intervals[0] = intervals[1]
+            intervals[1] = temp
+        }
         if (intervals[i][0]>=intervals[j][0]) {
             intervals[i][0] = intervals[j][0]
             swapped = true
