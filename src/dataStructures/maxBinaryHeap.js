@@ -32,12 +32,12 @@ class MaxBinaryHeap {
             let swapped = null
         let leftIndex = 2 * index + 1
         let rightIndex = 2 * index + 2
-        if (leftIndex > this.values.length) {
+        if (leftIndex < this.values.length) {
             if(this.values[leftIndex] > element) {
                 swapped = leftIndex
             }
         }
-        if (rightIndex > this.values.length) {
+        if (rightIndex < this.values.length) {
             if( (!swapped && this.values[rightIndex] > element || !!swapped && this.values[rightIndex] > this.values[leftIndex])) {
                 swapped = rightIndex
             }
