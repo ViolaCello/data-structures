@@ -18,7 +18,7 @@ attr_accessor :values
         return self
     end
 
-    def extract_max
+    def extract_max # works according to VisualAlgo
         max = @values[0]
         tail = @values.pop()
         @values[0] = tail
@@ -41,7 +41,7 @@ attr_accessor :values
             break if !swapped
             @values[index] = @values[swapped]
             @values[swapped] = element
-            element = swapped
+            index = swapped
         end
         return max
     end
