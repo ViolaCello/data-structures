@@ -27,4 +27,37 @@ class PriorityQueue {
         }
         return this
     }
+
+    dequeue() {
+        if (this.values.length===1) {
+            return this.values.pop()
+        }
+        let min = this.values[0]
+        let tail = this.values.pop()
+        this.values[0] = tail
+        let index = 0
+        let element = this.values[index]
+        // repeat until neither child is greater than the element
+        while(true) {
+            let swapped = null
+        let leftIndex = 2 * index + 1
+        let rightIndex = 2 * index + 2
+        if (leftIndex < this.values.length) {
+            if(this.values.priority[leftIndex] < element.priority) {
+                swapped = leftIndex
+            }
+        }
+        if (rightIndex < this.values.length) {
+            if( (!swapped && this.values.priority[rightIndex] < element.priority || !!swapped && this.values.priority[rightIndex] < this.values[leftIndex].priority)) {
+                swapped = rightIndex
+            }
+        }
+        if (swapped===null) break
+        this.values[index] = this.values[swapped]
+        this.values[swapped] = element
+        index = swapped
+        }
+        return min
+    }
+
 }
