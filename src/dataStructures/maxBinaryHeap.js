@@ -4,6 +4,7 @@ class MaxBinaryHeap {
     this.values = []
     }
 
+     // Big O O(log N)
     insert(value) {
         this.values.push(value)
         let index = this.values.length - 1
@@ -18,6 +19,7 @@ class MaxBinaryHeap {
         return this
     }
 
+     // Big O O(log N)
     extractMax() {
         if (this.values.length===1) {
             return this.values.pop()

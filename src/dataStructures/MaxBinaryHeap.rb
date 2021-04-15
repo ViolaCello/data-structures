@@ -5,6 +5,7 @@ attr_accessor :values
         @values = []
     end
 
+    ##   Big O O(log N)
     def insert(value) # works according to VisualAlgo
         @values.push(value)
         index = @values.length - 1
@@ -18,6 +19,7 @@ attr_accessor :values
         return self
     end
 
+    # Big O O(log N)
     def extract_max # works according to VisualAlgo
         max = @values[0]
         tail = @values.pop()

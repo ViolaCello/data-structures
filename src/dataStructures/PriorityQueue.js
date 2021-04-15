@@ -12,6 +12,7 @@ class PriorityQueue {
         this.values = []
     }
 
+    // Big O O(log N)
     enqueue(data, priority){ // Basically works as a Min Binary Heap
     const newNode = new Node(data, priority)
     this.values.push(newNode)
@@ -28,6 +29,7 @@ class PriorityQueue {
         return this
     }
 
+     // Big O O(log N)
     dequeue() {
         if (this.values.length===1) {
             return this.values.pop()
