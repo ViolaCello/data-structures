@@ -43,12 +43,12 @@ class PriorityQueue {
         let leftIndex = 2 * index + 1
         let rightIndex = 2 * index + 2
         if (leftIndex < this.values.length) {
-            if(this.values.priority[leftIndex] < element.priority) {
+            if(this.values[leftIndex].priority < element.priority) {
                 swapped = leftIndex
             }
         }
         if (rightIndex < this.values.length) {
-            if( (!swapped && this.values.priority[rightIndex] < element.priority || !!swapped && this.values.priority[rightIndex] < this.values[leftIndex].priority)) {
+            if( (!swapped && this.values[rightIndex].priority < element.priority || !!swapped && this.values[rightIndex].priority < this.values[leftIndex].priority)) {
                 swapped = rightIndex
             }
         }
