@@ -4,5 +4,14 @@ class Node {
         this.data = data
         this.priority = priority
     }
+}
+
+class PriorityQueue {
+
+    constructor() {
+        values = []
+    }
+
+
     
 }
