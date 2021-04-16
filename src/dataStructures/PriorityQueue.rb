@@ -18,7 +18,7 @@ attr_accessor :values
         new_node = Node.new(data, priority)
         @values.push(new_node)
         index = @values.length - 1
-        while !!index do
+        while index > 0 do
             parent_index = ((index-1)/2).to_i
             break if @values[parent_index].priority < @values[index].priority
             temp = @values[index]
