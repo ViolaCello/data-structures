@@ -14,6 +14,7 @@ attr_accessor :values
         @values = []
     end
 
+    # Big O O(log N)
     def enqueue(data, priority)
         new_node = Node.new(data, priority)
         @values.push(new_node)
@@ -37,5 +38,34 @@ attr_accessor :values
           i += 1
         end
       end
+
+     # Big O O(log N)
+      def dequeue 
+        min = @values[0]
+        tail = @values.pop()
+        @values[0] = tail
+        index = 0
+        element = @values[index]
+        while true do 
+            swapped = nil
+            left = 2 * index + 1
+            right = 2 * index + 2
+            if left < @values.length 
+                if @values[left].priority < element.priority
+                    swapped = left
+                end
+            end
+            if right < @values.length
+                if (!swapped && @values[right].priority < element.priority) || (!!swapped && @values[right].priority < @values[left].priority)
+                    swapped = right
+                end
+            end
+            break if !swapped
+            @values[index] = @values[swapped]
+            @values[swapped] = element
+            index = swapped
+        end
+        return min
+    end
 
 end
