@@ -45,4 +45,8 @@ class Stack
         return !@root
     end
 
+    def peek
+        return @root
+    end
+
 end
