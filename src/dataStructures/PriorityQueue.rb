@@ -29,4 +29,13 @@ attr_accessor :values
         return self
     end
 
+    def peek
+        i = 0
+        j = @values.length
+        while i<j do
+          puts "Data = #{@values[i].data}, priority= #{@values[i].priority}"
+          i += 1
+        end
+      end
+
 end
