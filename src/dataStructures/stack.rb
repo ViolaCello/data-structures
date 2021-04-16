@@ -1,8 +1,8 @@
 class Node
-    attr_accessor :value, :next
+    attr_accessor :data, :next
 
-    def initialize(value)
-        @value = value
+    def initialize(data)
+        @data = data
         @next = nil
     end
 end
@@ -17,8 +17,8 @@ class Stack
     end
 
 
-    def push(val)
-        new_node = Node.new(val)
+    def push(data)
+        new_node = Node.new(data)
         if !@first
             @first = new_node
             @last = new_node
@@ -39,6 +39,10 @@ class Stack
         @first = @first.next
         @size -= 1
         return old_head
+    end
+
+    def is_empty?
+        return !!@first
     end
 
 end
