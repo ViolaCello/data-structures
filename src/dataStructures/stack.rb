@@ -7,6 +7,11 @@ class Node
     end
 end
 
+# Stack is LIFI - Last In First Out
+# Big O
+# Insertion O(1)
+# Removal O(1)
+
 class Stack
     attr_accessor :root, :last, :size
 
