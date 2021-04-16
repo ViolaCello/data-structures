@@ -8,10 +8,10 @@ class Node
 end
 
 class Stack
-    attr_accessor :first, :last, :size
+    attr_accessor :root, :last, :size
 
     def initialize
-        @first = nil
+        @root = nil
         @last = nil
         @size = 0
     end
@@ -19,12 +19,12 @@ class Stack
 
     def push(data)
         new_node = Node.new(data)
-        if !@first
-            @first = new_node
+        if !@root
+            @root = new_node
             @last = new_node
         else 
-            old_head = @first
-            @first = new_node
+            old_head = @root
+            @root = new_node
             new_node.next = old_head
         end
         return @size += 1
@@ -32,17 +32,17 @@ class Stack
 
     def pop
         return nil if @size==0
-        old_head = @first
-        if @first==@last
+        old_head = @root
+        if @root==@last
             @last = nil
         end
-        @first = @first.next
+        @root = @root.next
         @size -= 1
         return old_head
     end
 
     def is_empty?
-        return !!@first
+        return !@root
     end
 
 end
