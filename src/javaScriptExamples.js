@@ -123,3 +123,20 @@ const merge = function(intervals) {
 
        return intervals
 }
+
+// weakest chain problem
+// O(n^2) solution
+function solution(A) {
+    let subResults = []
+    for (let p=1; p < A.length - 3; p++) {
+        let q = A.length - 2
+        while (q-p>1) {
+            subResults.push(A[p]+A[q])
+            q--
+        }
+    }
+    let result = Math.min(...subResults)
+    return result
+}
+
+let r = Array.from({length: 99999}, () => Math.floor(Math.random() * 999999));

@@ -7,6 +7,7 @@ class Node
     end
 end
 
+# Using Singly Linked List
 # Stack is LIFI - Last In First Out
 # Big O
 # Insertion O(1)
