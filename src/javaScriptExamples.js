@@ -139,4 +139,24 @@ function solution(A) {
     return result
 }
 
-let r = Array.from({length: 99999}, () => Math.floor(Math.random() * 999999));
+ let r = Array.from({length: 99999}, () => Math.floor(Math.random() * 999999));
+
+ function betterSolution(a) {
+     let newArr = a
+     let sortedArr = newArr.sort((a,b) => a-b)
+     let p = 0
+     let q = p+1
+        while (p<q) {
+            let pp = a.indexOf(sortedArr(p))
+            let qq = a.indexOf(sortedArr(q))
+            if (pp===0) {
+                p++
+            } else if (qq>=A.length -2) {
+                qq++
+            } else if {
+               ( pp>qq)
+            }
+         
+        }
+    
+ }
