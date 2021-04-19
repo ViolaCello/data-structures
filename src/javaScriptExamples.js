@@ -139,24 +139,33 @@ function solution(A) {
     return result
 }
 
- let r = Array.from({length: 99999}, () => Math.floor(Math.random() * 999999));
+// let r = Array.from({length: 99999}, () => Math.floor(Math.random() * 999999));
 
- function betterSolution(a) {
-     let newArr = a
-     let sortedArr = newArr.sort((a,b) => a-b)
-     let p = 0
-     let q = p+1
-        while (p<q) {
-            let pp = a.indexOf(sortedArr(p))
-            let qq = a.indexOf(sortedArr(q))
-            if (pp===0) {
-                p++
-            } else if (qq>=A.length -2) {
-                qq++
-            } else if {
-               ( pp>qq)
-            }
-         
-        }
-    
- }
+
+// A pangram is a sentence where every letter of the English alphabet appears at least once.
+// Given a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.
+//Constraints:
+// 1 <= sentence.length <= 1000
+// sentence consists of lowercase English letters.
+
+
+var checkIfPangram = function(sentence) {
+    let letters = []
+    for(let i = 97; i<123; i++) {
+        letters.push(i)
+    }
+    for(let i=0; i<sentence.length; i++) {
+       
+        let char = sentence.charCodeAt(i)
+        let alph = letters.indexOf(char)
+        console.log(sentence[i], !!alph, char, alph)
+        if (alph != -1) {
+           letters.splice(alph, 1)
+        } 
+    }
+    console.log(letters)
+    if (letters.length===0) {
+        return true
+    } else 
+        return false
+};
