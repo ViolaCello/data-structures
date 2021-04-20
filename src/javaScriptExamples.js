@@ -169,3 +169,37 @@ var checkIfPangram = function(sentence) {
     } else 
         return false
 };
+
+// You are given an array items, where each items[i] = [typei, colori, namei] describes the type, color, and name of the ith item. You are also given a rule represented by two strings, ruleKey and ruleValue.
+
+// The ith item is said to match the rule if one of the following is true:
+
+// ruleKey == "type" and ruleValue == typei.
+// ruleKey == "color" and ruleValue == colori.
+// ruleKey == "name" and ruleValue == namei.
+// Return the number of items that match the given rule.
+
+const countMatches = function(items, ruleKey, ruleValue) {
+    let key;
+    let value;
+    switch(ruleKey) {
+        case 'type':
+            key = 0
+            break;
+        case 'color':
+            key = 1
+            break;
+        case 'name':
+            key = 2
+            break;
+        default:
+            console.log("BAD!!!")
+    }
+        let count = 0
+        for(let i = 0; i<items.length; i++) {
+            if (items[i][key]==ruleValue) {
+                count++
+            }
+        }
+    return count
+};
