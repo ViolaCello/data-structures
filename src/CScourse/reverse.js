@@ -18,3 +18,8 @@ function reverse(string) {
     }
     return result
 }
+
+// using REDUCE
+const reverseUsingReduce = (string) => {
+    return string.split('').reduce((result, str) => str + result, '')
+}
