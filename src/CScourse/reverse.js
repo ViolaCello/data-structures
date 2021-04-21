@@ -9,3 +9,12 @@ function reverse(string) {
     }
     return result    
 }
+
+// another, better ES6 solution:
+function reverse(string) {
+    let result = ""
+    for (let str of string) {
+        result = str+result // goes through each character of the string and adds it to the BEGINNING of result
+    }
+    return result
+}
