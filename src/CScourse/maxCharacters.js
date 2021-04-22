@@ -6,13 +6,14 @@ function maxChars(str) {
         chars[char] = chars[char]+1 || 1
         //console.log(chars)
     }
-    let result = []
+    let result;
     for (let key in chars) {
-        console.log(key, chars[key])
+        console.log(result)
         if (!result) {
-        result.push(key, chars.key)
-    } else {
-        if (chars.key>result[1]) result = [key, chars[key]]
+            console.log("I'm in here!", key, chars[key])
+       let result = [key, chars[key]]
+    } else if 
+        (chars[key]>result[1]) { result = [key, chars[key]]
     }
 }
     return result
