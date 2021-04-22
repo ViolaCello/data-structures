@@ -16,3 +16,21 @@ function maxChars(str) {
 }
     return result[0]
 }
+
+// alternative
+
+function maxCharsAlt(str) {
+    let chars = {}
+    let max = 0
+    let maxChar;
+    for (let char of str) {
+        chars[char] = chars[char] + 1 || 1
+    }
+    for (let key in chars) {
+        if (chars[key] > max) {
+            max = chars[key]
+            maxChar = key
+        }
+    }
+    return maxChar
+}
