@@ -6,3 +6,10 @@ function palindrome(str) {
     if (str==reversed) return true
     return false 
 }
+
+// alternate
+
+function checkIfPalindrome(str) {
+    let reversed = str.split('').reverse().join('')
+    return str === reversed 
+}
