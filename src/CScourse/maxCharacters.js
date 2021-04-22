@@ -14,5 +14,5 @@ function maxChars(str) {
         (chars[key]>result[1]) { result = [key, chars[key]]
     }
 }
-    return result
+    return result[0]
 }
