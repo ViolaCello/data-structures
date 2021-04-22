@@ -3,15 +3,16 @@
 function maxChars(str) {
     let chars = {}
     for (let char of str) {
-        chars[char] = chars[char]++ || 1
-        console.log(chars)
+        chars[char] = chars[char]+1 || 1
+        //console.log(chars)
     }
     let result = []
     for (let key in chars) {
+        console.log(key, chars[key])
         if (!result) {
         result.push(key, chars.key)
     } else {
-        if (chars.key>result[1]) result = [key, chars.key]
+        if (chars.key>result[1]) result = [key, chars[key]]
     }
 }
     return result
