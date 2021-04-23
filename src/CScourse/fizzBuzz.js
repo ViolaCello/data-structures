@@ -5,7 +5,7 @@
 // if its a multiple of 3 and 5, log 'fizzbuzz'
 
 function fizzBuzz(n) {
-    for (let i = 1; i<n; i++) {
+    for (let i = 1; i<=n; i++) {
         if ( !(i%3) && !(i%5)) {
             console.log("fizzbuzz")
         } 
