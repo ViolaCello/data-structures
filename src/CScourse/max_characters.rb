@@ -7,8 +7,15 @@ def max_characters(string)
             characters[char] = characters[char] + 1
         else 
             characters[char] = 1
-        end
-        
+        end 
     end
-    puts characters
+    max = 0
+    max_char = ""
+    characters.each do |key, value| 
+        if value>max
+            max = value
+            max_char = key
+        end
+    end
+    return max_char
 end
