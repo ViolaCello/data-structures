@@ -11,3 +11,9 @@ def reverse_string(string)
     string.each_char { |char| result = char + result }
     return result
 end
+
+def reverse_another_string(string)
+    result = ""
+    string.split('').each { |char| result = char + result}
+    return result
+end
