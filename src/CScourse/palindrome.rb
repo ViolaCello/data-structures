@@ -10,3 +10,14 @@ def is_palindrome?(word)
     return word == reversed
 end
 
+# using multiple pointers
+def is_palindrome?(word)
+    i = 0
+    j = (word.length) - 1
+    while i<j
+        return false if word[i] != word[j]
+        i +=1
+        j -=1
+    end
+    return true
+end
