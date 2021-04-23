@@ -212,33 +212,31 @@ const countMatches = function(items, ruleKey, ruleValue) {
 
 // Note: The boy can buy the ice cream bars in any order.
 
-const maxIceCream = function(costs, coins) {
-    let sorted = bubbleSortOptimized(costs)
+let maxIceCream = function(costs, coins) {
+    let sorted = insertionSort(costs)
     if (sorted[0]>coins) return 0
     let l = costs.length
     let i = 1
     let count = 1
     let subTotal = sorted[0]
-    while ( i< (l-1) ) {
+    while ( i< l ) {
         if (subTotal + costs[i]> coins) break;
+            subTotal = subTotal + costs[i]
             count++
             i++
     }
     return count
 }
 
-// helpter to maxIceCream
-function bubbleSortOptimized(arr) {
-    // let temp;
+// helpter to maxIceCream (bubbleSort was too slow for the large test case array)
+function insertionSort(arr) {
     for (let i = 0; i<arr.length; i++) {
-        let swapped = false
-        for (let j = 0; j<(arr.length-1-i); j++) {
-            if (arr[j]>arr[j+1]) {
-                [arr[j], arr[j+1]] = [arr[j+1], arr[j]]
-                swapped = true
-            }
-        }
-        if (swapped==false) break
+      let currentValue = arr[i]
+       for (let j = i-1; j>=0 && arr[j] > currentValue; j--) {
+        arr[j+1] = arr[j]
+       
+       arr[j] = currentValue
+       }
     }
     return arr
 }
