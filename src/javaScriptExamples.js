@@ -214,7 +214,17 @@ const countMatches = function(items, ruleKey, ruleValue) {
 
 const maxIceCream = function(costs, coins) {
     let sorted = bubbleSortOptimized(costs)
-
+    if (sorted[0]>coins) return 0
+    let l = costs.length
+    let i = 1
+    let count = 1
+    let subTotal = sorted[0]
+    while ( i< (l-1) ) {
+        if (subTotal + costs[i]> coins) break;
+            count++
+            i++
+    }
+    return count
 }
 
 // helpter to maxIceCream
