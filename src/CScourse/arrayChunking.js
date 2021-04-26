@@ -5,10 +5,11 @@
 function chunk(array, size) {
     let result = []
     for (arr of array) {
-        if (!result[-1] || result[-1].length==size) {
+        let prev = result[result.length - 1]
+        if (!prev || prev.length==size) {
             result.push([arr])
         } else {
-            result[-1].push(arr)
+            result[result.length - 1].push(arr)
         }
     }
     return result
