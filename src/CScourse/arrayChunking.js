@@ -4,9 +4,12 @@
 
 function chunk(array, size) {
     let result = []
-    if (array.length <= size) return result.push(array)
-    while(result.length < size) {
-            result.push(array.splice(0, size-1))
+    for (arr of array) {
+        if (!result[-1] || result[-1].length==size) {
+            result.push([arr])
+        } else {
+            result[-1].push(arr)
+        }
     }
     return result
 }
