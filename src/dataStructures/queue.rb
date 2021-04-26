@@ -9,6 +9,9 @@ end
 
 # Queue is First In First Out
 # Big O of Queue = Constant Time: Insertion O(1), Removal O(1)
+
+# In a Queue using Singly Linked Lists, we add to the end and remove from the beginning
+
 class Queue 
     attr_accessor :first, :last, :size
 
@@ -38,5 +41,4 @@ class Queue
         @size -= 1
         return old_head
     end
-
 end
