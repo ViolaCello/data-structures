@@ -6,9 +6,7 @@ function chunk(array, size) {
     let result = []
     if (array.length <= size) return result.push(array)
     while(result.length < size) {
-        for (let i = 0; i<size-1; i++) {
             result.push(array.splice(0, size-1))
-        }
     }
     return result
 }
