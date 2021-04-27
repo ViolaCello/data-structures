@@ -17,7 +17,7 @@ function chunk(array, size) {
 
 function chunkSlice(array, size) {
     let result = []
-    let loops = ((array.length / size) + array.length % size)
+    let loops = ((array.length / size) + array.length % size) - 1
     let chunk = []
     for(let i = 0; i<loops; i++) {
         chunk.push(array.slice(i*size, (size+(size*i))))
