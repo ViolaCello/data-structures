@@ -15,6 +15,7 @@ function chunk(array, size) {
     return result
 }
 
+// alternate solution using .slice()
 function chunkSlice(array, size) {
         let result = []
         let loops = parseInt(array.length / size)
@@ -23,4 +24,15 @@ function chunkSlice(array, size) {
             result.push(array.slice(i*size, (size+(size*i))))
         }
         return result
+}
+
+//alternate solution using While and .slice()
+function chunckWhileSolution(array, size) {
+    let result = []
+    let index = 0
+    while (index < array.length) {
+        result.push(array.slice(index, index + size))
+        index += size
+    }
+    return result
 }
