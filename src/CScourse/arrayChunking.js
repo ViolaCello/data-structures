@@ -14,3 +14,7 @@ function chunk(array, size) {
     }
     return result
 }
+
+function chunkSlice(array, size) {
+    
+}
