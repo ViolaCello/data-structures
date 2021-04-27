@@ -16,13 +16,11 @@ function chunk(array, size) {
 }
 
 function chunkSlice(array, size) {
-    let result = []
-    let loops = ((array.length / size) + array.length % size) - 1
-    let chunk = []
-    for(let i = 0; i<loops; i++) {
-        chunk.push(array.slice(i*size, (size+(size*i))))
-        result.push(chunk)
-        chunk = []
-    }
-    return result
+        let result = []
+        let loops = parseInt(array.length / size)
+        if (array.length%size !== 0) loops++
+        for(let i = 0; i<loops; i++) {
+            result.push(array.slice(i*size, (size+(size*i))))
+        }
+        return result
 }
