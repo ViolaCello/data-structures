@@ -13,8 +13,9 @@ function anagrams(stringA, stringB) {
     for (let str of newB) {
         mapB[str] = mapB[str] + 1 || 1
     }
-    if (Object.keys(mapA) != Object.keys(mapB)) return false
+    if (Object.keys(mapA).length != Object.keys(mapB).length) return false
     for (let key in newA) {
+        console.log(mapA[key], mapB[key])
         if (mapA[key] != mapB[key]) return false
     }
     return true
