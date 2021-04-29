@@ -20,3 +20,11 @@ function anagrams(stringA, stringB) {
     }
     return true
 }
+
+// alternative way using .sort()
+
+function anagrams(stringA, stringB) { 
+    stringA.replace(/[^\w]/g, "").toLowerCase()
+    stringB.replace(/[^\w]/g, "").toLowerCase()
+    return stringA.sort()===stringB.sort()
+}
