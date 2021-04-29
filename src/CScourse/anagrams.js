@@ -24,7 +24,5 @@ function anagrams(stringA, stringB) {
 // alternative way using .sort()
 
 function anagrams(stringA, stringB) { 
-    stringA.replace(/[^\w]/g, "").toLowerCase()
-    stringB.replace(/[^\w]/g, "").toLowerCase()
-    return stringA.sort()===stringB.sort()
+    return stringA.replace(/[^\w]/g, "").toLowerCase().split('').sort().join('') === stringB.replace(/[^\w]/g, "").toLowerCase().split('').sort().join('')
 }
