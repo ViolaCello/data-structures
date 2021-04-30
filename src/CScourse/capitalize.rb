@@ -1,0 +1,3 @@
+def capitalize(str)
+    
+end
