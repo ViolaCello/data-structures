@@ -22,3 +22,19 @@ def steps(n)
         str = ""
     end
 end
+
+# recursive solution
+
+def steps(n, row = 0, stair=' ')
+    return if n==row
+    if stair.length==n
+        puts stair
+        return steps(n, row + 1)
+    end
+    if stair.length<=row
+        stair+="#"
+    else 
+        stair+=' '
+    end
+    steps(n, row, stair)
+end
