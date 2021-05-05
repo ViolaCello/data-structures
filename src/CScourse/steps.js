@@ -37,6 +37,13 @@ function steps(n, row = 0, stair ='') {
 // pyramid
 //  n*2 + 1 
 function pyramid(n) {
-    const height = (n*2) + 1
-    
+    const width = (n*2) + 1
+    let midpoint = Math.floor(width/2)+1
+    for(let i = 0; i<n; i++) {
+        let row = ''
+        let localWidth = ((i+1)*2) + 1
+        for(let j = 0; j<width; j++){
+            
+        }
+    }
 }
