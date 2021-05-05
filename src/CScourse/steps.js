@@ -33,3 +33,8 @@ function steps(n, row = 0, stair ='') {
     }
     steps(n, row, stair)
 }
+
+// pyramid
+function pyramid(n) {
+    
+}
