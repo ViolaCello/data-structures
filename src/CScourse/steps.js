@@ -35,6 +35,8 @@ function steps(n, row = 0, stair ='') {
 }
 
 // pyramid
+//  n*2 + 1 
 function pyramid(n) {
+    const height = (n*2) + 1
     
 }
