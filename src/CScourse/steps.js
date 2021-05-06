@@ -37,21 +37,15 @@ function steps(n, row = 0, stair ='') {
 // pyramid
 //  n*2 + 1 
 function pyramid(n) {
-    const width = (n*2) + 1
+    const width = (n*2) - 1
     let midpoint = Math.floor(width/2)+1
     for(let i = 1; i<=n; i++) {
-        let row = ''
         let localWidth = ((i)*2) -1 
         let spaces = width - localWidth
         let halfSpaces = spaces/2
-        console.log(localWidth, halfSpaces)
-        for(let j = 1; j<=width; j++){
-            if(j<halfSpaces || j > halfSpaces+midpoint) {
-                row += '*'
-            } else {
-                row += '#'
-            }
-        }
+        let row = " ".repeat(halfSpaces)
+        row+="#".repeat(localWidth)
+        row+=" ".repeat(halfSpaces)
         console.log(row)
     }
 }
