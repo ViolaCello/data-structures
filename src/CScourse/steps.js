@@ -38,7 +38,7 @@ function steps(n, row = 0, stair ='') {
 //  n*2 + 1 
 function pyramid(n) {
     const width = (n*2) - 1
-    let midpoint = Math.floor(width/2)+1
+    // let midpoint = Math.floor(width/2)+1 --> turns out, I only needed the midpoint to pseudocode it
     for(let i = 1; i<=n; i++) {
         let localWidth = ((i)*2) -1 
         let spaces = width - localWidth
