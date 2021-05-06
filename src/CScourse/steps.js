@@ -35,7 +35,6 @@ function steps(n, row = 0, stair ='') {
 }
 
 // pyramid
-//  n*2 + 1 
 function pyramid(n) {
     const width = (n*2) - 1
     // let midpoint = Math.floor(width/2)+1 --> turns out, I only needed the midpoint to pseudocode it
@@ -48,4 +47,20 @@ function pyramid(n) {
         row+=" ".repeat(halfSpaces)
         console.log(row)
     }
+}
+
+// pyramid alternate iterative solution:
+function pyramidIterive(n) {
+    const midpoint = Math.floor((2 * n - 1) / 2)
+    for (let row = 0; row < n; row ++) {
+        let level = ''
+        for (let column = 0; column < 2 * n -1; column++) {
+            if (midpoint - row <= column && midpoint + row >= column ) {
+                level+="#"
+            } else {
+                level+=" "
+            }
+        }
+        console.log(level)
+    } 
 }
