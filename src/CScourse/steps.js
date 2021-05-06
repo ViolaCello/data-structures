@@ -64,3 +64,22 @@ function pyramidIterive(n) {
         console.log(level)
     } 
 }
+
+// pyramid recursive solution
+function pyramidRecursive(n, row=0, level = '') {
+    if (row===n-1) return
+    const midpoint = Math.floor((2 * n - 1) / 2)
+
+    if (level.length===((n*2)-1)) {
+        console.log(level)
+        return pyramidRecursive(n, row + 1)
+    }
+    let column = level.length
+    console.log(row, level, midpoint, column)
+     if (midpoint - row <= column && midpoint + row >= column ) {
+                level+="#"
+            } else {
+                level+="*"
+            }
+    pyramidRecursive(n, row, level)
+}
