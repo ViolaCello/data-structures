@@ -9,23 +9,24 @@ class HashTable {
         this.keyMap = new Array(size)
     }
 
-     hash(key, value) {
-    let total = 0
-    const STATIC_PRIME = 31
-    // loop through each character of the 'key' or 100 times if there are more than 100 characters in the key
-    for (let i = 0; i < Math.min(key.length, 100); i++) { 
-        let char = key[i]
+    set(key, value) {
+        let total = 0
+        const STATIC_PRIME = 31
+        // loop through each character of the 'key' or 100 times if there are more than 100 characters in the key
+        for (let i = 0; i < Math.min(key.length, 100); i++) { 
+            let char = key[i]
         // in ASCII the lowercase letter 'a' begins at 97
-        let charValue = char.charCodeAt(0) - 96 
+            let charValue = char.charCodeAt(0) - 96 
         // location of where key should be stored in the keyMap
-        total = ( total * STATIC_PRIME + charValue ) % this.keyMap.length
-    }
-    console.log(total)
-    if (this.keyMap[total]===undefined) {
-        this.keyMap[total] = []
-        this.keyMap[total].push([key, value])
-    }
-        
-    }
+            total = ( total * STATIC_PRIME + charValue ) % this.keyMap.length
+            }
+        total = Math.abs(total)
+        if (this.keyMap[total]===undefined) {
+            this.keyMap[total] = []
+            this.keyMap[total].push([key, value])
+            } else {
+            this.keyMap[total].push([key, value])
+            }
+        }
 }
 
