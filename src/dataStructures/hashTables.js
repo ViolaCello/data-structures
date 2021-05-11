@@ -9,7 +9,7 @@ class HashTable {
         this.keyMap = new Array(size)
     }
 
-    set(key, value) {
+    hash(key) {
         let total = 0
         const STATIC_PRIME = 31
         // loop through each character of the 'key' or 100 times if there are more than 100 characters in the key
@@ -20,13 +20,22 @@ class HashTable {
         // location of where key should be stored in the keyMap
             total = ( total * STATIC_PRIME + charValue ) % this.keyMap.length
             }
-        total = Math.abs(total)
-        if (this.keyMap[total]===undefined) {
-            this.keyMap[total] = []
-            this.keyMap[total].push([key, value])
-            } else {
-            this.keyMap[total].push([key, value])
-            }
+       return  Math.abs(total)
         }
+
+    set(key, value) {
+        let storage = hash(key)
+        if (this.keyMap[storage]===undefined) {
+            this.keyMap[storage]=[]
+            this.keyMap[storage].push([key, value])
+        } else {
+            this.keyMap[storage].push([key, value])
+        }
+    }
+
+    get(key) {
+        
+    }
+
 }
 
