@@ -24,7 +24,7 @@ class HashTable {
         }
 
     set(key, value) {
-        let storage = hash(key)
+        const storage = this.hash(key)
         if (this.keyMap[storage]===undefined) {
             this.keyMap[storage]=[]
             this.keyMap[storage].push([key, value])
@@ -34,7 +34,16 @@ class HashTable {
     }
 
     get(key) {
-        
+        const storage = this.hash(key)
+        if (this.keyMap[storage]===undefined) return null
+        if (this.keyMap[storage].length > 1) {
+            for (let i = 0; i<this.keyMap[storage].length; i++) {
+                if (this.keyMap[storage][i]===key) return this.keyMap[storage][i][1]
+            }
+        } else {
+            return this.keyMap[storage][0][1]
+        }
+        return null
     }
 
 }
