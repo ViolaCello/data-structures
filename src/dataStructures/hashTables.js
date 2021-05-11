@@ -36,7 +36,7 @@ class HashTable {
         if (this.keyMap[storage]===undefined) return null
         if (this.keyMap[storage].length > 1) {
             for (let i = 0; i<this.keyMap[storage].length; i++) {
-                if (this.keyMap[storage][i]===key) return this.keyMap[storage][i][1]
+                if (this.keyMap[storage][i][0]===key) return this.keyMap[storage][i][1]
             }
         } else {
             return this.keyMap[storage][0][1]
