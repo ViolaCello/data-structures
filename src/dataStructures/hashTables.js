@@ -20,17 +20,15 @@ class HashTable {
         // location of where key should be stored in the keyMap
             total = ( total * STATIC_PRIME + charValue ) % this.keyMap.length
             }
-       return  Math.abs(total)
+        return  Math.abs(total)
         }
 
     set(key, value) {
         const storage = this.hash(key)
         if (this.keyMap[storage]===undefined) {
             this.keyMap[storage]=[]
+        } 
             this.keyMap[storage].push([key, value])
-        } else {
-            this.keyMap[storage].push([key, value])
-        }
     }
 
     get(key) {
