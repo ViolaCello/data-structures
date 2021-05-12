@@ -60,4 +60,26 @@ class HashTable {
         return result
     }
 
+    // returns all values in the Hash Table (WITHOUT DUPLICATES)
+    values() {
+        let result = []
+        for (let i = 0; i<this.keyMap.length; i++) {
+            if(!!this.keyMap[i] && this.keyMap[i].length>0) {
+                for (let j = 0; j<this.keyMap[i].length; j++) {
+                    result.push(this.keyMap[i][j][1])
+                }
+            }
+        }
+        // remove duplicates
+        let valueTable = {}
+        for (let val of result) {
+            valueTable[val] = valueTable[val] + 1 || 1
+        }
+        let finalResult = []
+        for (let key in valueTable) {
+            finalResult.push(key)
+        }
+        return finalResult
+    }
+
 }
