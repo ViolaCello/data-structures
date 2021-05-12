@@ -61,7 +61,7 @@ class HashTable {
     }
 
     // returns all values in the Hash Table (WITHOUT DUPLICATES)
-    values() {
+    valuesOLD() {
         let result = []
         for (let i = 0; i<this.keyMap.length; i++) {
             if(!!this.keyMap[i] && this.keyMap[i].length>0) {
@@ -80,6 +80,27 @@ class HashTable {
             finalResult.push(key)
         }
         return finalResult
+    }
+
+    // same as values() above, but using our own Hash Table to create the key map to check for duplicates
+    values() {
+        let subResult = []
+        for(let i = 0; i<this.keyMap.length; i++) {
+            if (this.keyMap[i]) {
+                for(let j = 0; j<this.keyMap[i].length; j++) {
+                    subResult.push(this.keyMap[i][j][1])
+                }
+            }
+        }
+        // check for duplicates using our own Hash Table  -- need to add more Class Functions for this
+        const valueMap = new HashTable(subResult.length)
+        for (let val of subResult) {
+            if (!valueMap.get(val)) {
+                valueMap.set(val, 1)
+            } else {
+                valueMap
+            }
+        }
     }
 
 }
