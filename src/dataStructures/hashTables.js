@@ -44,5 +44,20 @@ class HashTable {
         return null
     }
 
-}
+    // returns all the keys in the hash table
+    keys() {
+        let result = []
+        for (let i = 0; i<this.keyMap.length; i++) {
+            if (!!this.keyMap[i])  {
+                if (this.keyMap[i].length>0) {
+                    for (let j=0; j<this.keyMap[i].length; j++) {
+                        result.push(this.keyMap[i][j][0])
+                    }
+                }
+               
+            }
+        }
+        return result
+    }
 
+}
