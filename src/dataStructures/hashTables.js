@@ -119,4 +119,16 @@ class HashTable {
         }
     }
     }
+
+    delete(key) {
+        let index = this.hash(key)
+        if (this.keyMap[index]===undefined) return null
+        for (let i = 0; i<this.keyMap[index].length; i++) {
+            if (this.keyMap[index][i][0]===key) {
+                return this.keyMap[index][i] = null
+            }
+        }
+        return undefined
+    }
+
 }
