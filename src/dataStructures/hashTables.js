@@ -103,4 +103,20 @@ class HashTable {
         }
     }
 
+    replace(key, value) {
+        // Find the storage location
+        // find the old value
+        // Delete the old value
+        // add the new value in its place
+
+    let index = this.hash(key)
+    if (this.keyMap[index]===undefined) {
+        return this.set(key, value)
+    }
+    for (let i = 0; i<this.keyMap[index].length; i++) {
+        if (this.keyMap[index][i][0]===key) {
+           return this.keyMap[index][i][1] = value
+        }
+    }
+    }
 }
