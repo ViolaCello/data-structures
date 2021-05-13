@@ -25,10 +25,12 @@ class HashTable {
 
     set(key, value) {
         const storage = this.hash(key)
+        console.log(this.get(key))
+        if (this.get(key)) return null
         if (this.keyMap[storage]===undefined) {
             this.keyMap[storage]=[]
         } 
-            this.keyMap[storage].push([key, value])
+           return this.keyMap[storage].push([key, value])
     }
 
     get(key) {
@@ -38,10 +40,8 @@ class HashTable {
             for (let i = 0; i<this.keyMap[storage].length; i++) {
                 if (this.keyMap[storage][i][0]===key) return this.keyMap[storage][i][1]
             }
-        } else {
-            return this.keyMap[storage][0][1]
-        }
-        return null
+        } 
+        return undefined
     }
 
     // returns all the keys in the hash table
@@ -51,7 +51,7 @@ class HashTable {
             if (!!this.keyMap[i])  {
                 if (this.keyMap[i].length>0) {
                     for (let j=0; j<this.keyMap[i].length; j++) {
-                        result.push(this.keyMap[i][j][0])
+                        if (this.keyMap[i][j]) result.push(this.keyMap[i][j][0])
                     }
                 }
                
@@ -66,7 +66,7 @@ class HashTable {
         for (let i = 0; i<this.keyMap.length; i++) {
             if(!!this.keyMap[i] && this.keyMap[i].length>0) {
                 for (let j = 0; j<this.keyMap[i].length; j++) {
-                    result.push(this.keyMap[i][j][1])
+                    if (this.keyMap[i][j]) result.push(this.keyMap[i][j][1])
                 }
             }
         }
@@ -125,7 +125,7 @@ class HashTable {
         if (this.keyMap[index]===undefined) return null
         for (let i = 0; i<this.keyMap[index].length; i++) {
             if (this.keyMap[index][i][0]===key) {
-                return this.keyMap[index][i] = null
+                return this.keyMap[index][i] = undefined
             }
         }
         return undefined
