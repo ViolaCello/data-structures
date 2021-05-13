@@ -36,7 +36,7 @@ class HashTable {
     get(key) {
         const storage = this.hash(key)
         if (this.keyMap[storage]===undefined) return null
-        if (this.keyMap[storage].length > 1) {
+        if (this.keyMap[storage].length > 0) {
             for (let i = 0; i<this.keyMap[storage].length; i++) {
                 if (this.keyMap[storage][i][0]===key) return this.keyMap[storage][i][1]
             }
@@ -94,26 +94,14 @@ class HashTable {
         // check for duplicates using our own Hash Table 
         const valueMap = new HashTable(subResult.length)
         for (let val of subResult) {
-            if (!valueMap.get(val)) {
-                valueMap.set(val, 1)
-            } else {
-                let count = parseInt(valueMap.get(val))
-                console.log(count, "Line 101")
-                count++
-                console.log(count)
-                valueMap.replace(val, count)
-            }
+                valueMap.set(val, "default")
+                console.log(valueMap.valuesOLD())
         }
         return valueMap.keys()
 
     }
 
     replace(key, value) {
-        // Find the storage location
-        // find the old value
-        // Delete the old value
-        // add the new value in its place
-
         let index = this.hash(key)
         if (this.keyMap[index]===undefined) {
          return this.set(key, value)
@@ -138,10 +126,3 @@ class HashTable {
     }
 
 }
-
-let a = new HashTable(2)
-a.set("test", 1)
-a.set("b", "bbb")
-a.set("c",11)
-a.set("rrr", "pwopwoe")
-a.set("d","dddd")
