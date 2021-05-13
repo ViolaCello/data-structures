@@ -25,12 +25,12 @@ class HashTable {
 
     set(key, value) {
         const storage = this.hash(key)
-        console.log(this.get(key))
-        if (this.get(key)) return null
+        if (this.get(key)) return undefined
         if (this.keyMap[storage]===undefined) {
             this.keyMap[storage]=[]
         } 
-           return this.keyMap[storage].push([key, value])
+          this.keyMap[storage].push([key, value])
+          return true
     }
 
     get(key) {
@@ -51,10 +51,9 @@ class HashTable {
             if (!!this.keyMap[i])  {
                 if (this.keyMap[i].length>0) {
                     for (let j=0; j<this.keyMap[i].length; j++) {
-                        if (this.keyMap[i][j]) result.push(this.keyMap[i][j][0])
+                         result.push(this.keyMap[i][j][0])
                     }
                 }
-               
             }
         }
         return result
@@ -92,15 +91,21 @@ class HashTable {
                 }
             }
         }
-        // check for duplicates using our own Hash Table  -- need to add more Class Functions for this
+        // check for duplicates using our own Hash Table 
         const valueMap = new HashTable(subResult.length)
         for (let val of subResult) {
             if (!valueMap.get(val)) {
                 valueMap.set(val, 1)
             } else {
-                valueMap
+                let count = parseInt(valueMap.get(val))
+                console.log(count, "Line 101")
+                count++
+                console.log(count)
+                valueMap.replace(val, count)
             }
         }
+        return valueMap.keys()
+
     }
 
     replace(key, value) {
@@ -109,15 +114,16 @@ class HashTable {
         // Delete the old value
         // add the new value in its place
 
-    let index = this.hash(key)
-    if (this.keyMap[index]===undefined) {
-        return this.set(key, value)
-    }
-    for (let i = 0; i<this.keyMap[index].length; i++) {
-        if (this.keyMap[index][i][0]===key) {
-           return this.keyMap[index][i][1] = value
+        let index = this.hash(key)
+        if (this.keyMap[index]===undefined) {
+         return this.set(key, value)
         }
-    }
+        for (let i = 0; i<this.keyMap[index].length; i++) {
+         if (this.keyMap[index][i][0]===key) {
+           return this.keyMap[index][i][1] = value
+            }
+        }
+        return undefined
     }
 
     delete(key) {
