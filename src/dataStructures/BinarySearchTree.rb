@@ -108,4 +108,12 @@ class BinarySearchTree
         return @result
     end
 
+
+    def find_recursive(value, current = @root)
+        return false if !current
+        return true if current.value == value
+        find_recursive(value, current.right) if value > current.value
+        find_recursive(value, current.left) if value < current.value
+    end
+
 end

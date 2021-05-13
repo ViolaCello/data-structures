@@ -60,26 +60,26 @@ class HashTable {
     }
 
     // returns all values in the Hash Table (WITHOUT DUPLICATES)
-    valuesOLD() {
-        let result = []
-        for (let i = 0; i<this.keyMap.length; i++) {
-            if(!!this.keyMap[i] && this.keyMap[i].length>0) {
-                for (let j = 0; j<this.keyMap[i].length; j++) {
-                    result.push(this.keyMap[i][j][1])
-                }
-            }
-        }
-        // remove duplicates
-        let valueTable = {}
-        for (let val of result) {
-            valueTable[val] = valueTable[val] + 1 || 1
-        }
-        let finalResult = []
-        for (let key in valueTable) {
-            finalResult.push(key)
-        }
-        return finalResult
-    }
+    // valuesOLD() {
+    //     let result = []
+    //     for (let i = 0; i<this.keyMap.length; i++) {
+    //         if(!!this.keyMap[i] && this.keyMap[i].length>0) {
+    //             for (let j = 0; j<this.keyMap[i].length; j++) {
+    //                 result.push(this.keyMap[i][j][1])
+    //             }
+    //         }
+    //     }
+    //     // remove duplicates
+    //     let valueTable = {}
+    //     for (let val of result) {
+    //         valueTable[val] = valueTable[val] + 1 || 1
+    //     }
+    //     let finalResult = []
+    //     for (let key in valueTable) {
+    //         finalResult.push(key)
+    //     }
+    //     return finalResult
+    // }
 
     // same as values() above, but using our own Hash Table to create the key map to check for duplicates
     values() {
