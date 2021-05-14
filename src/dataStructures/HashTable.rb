@@ -20,6 +20,7 @@ class HashTable
 
     # uses separate chaining 
     def set(key, value)
+        return false if !@hash.get(key) 
         index = indexing(key)
         if @hash[index] == nil
             @hash[index] = []
@@ -52,6 +53,19 @@ class HashTable
             i += 1
         end
         return result
+    end
+
+    # return an array of all the values in the hash table WITHOUT duplicates
+    def values
+        sub_result = []
+        i = 0
+        while i < @hash.length do
+            if @hash[i] != nil && @hash[i].length > 0
+                @hash[i].map { |k, v| sub_result.push(v) }
+            end
+            i += 1
+        end
+        return sub_result.uniq
     end
 
 end
