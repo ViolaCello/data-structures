@@ -27,5 +27,9 @@ class HashTable
         return true if @hash[index].push(key, value)
     end
 
+    # for debugging purposes
+    def print_all
+        @hash.each_with_index  { |k, i| puts "At index #{i} is #{k}" }
+    end
 
 end
