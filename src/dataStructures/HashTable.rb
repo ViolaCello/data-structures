@@ -18,5 +18,14 @@ class HashTable
         return total.abs()
     end
 
- 
+    # uses separate chaining 
+    def set(key, value)
+        index = indexing(key)
+        if @hash[index] == nil
+            @hash[index] = []
+        end
+        return true if @hash[index].push(key, value)
+    end
+
+
 end
