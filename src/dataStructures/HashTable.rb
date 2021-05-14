@@ -20,7 +20,7 @@ class HashTable
 
     # uses separate chaining 
     def set(key, value)
-        return false if !@hash.get(key) 
+        return false if !!self.get(key)
         index = indexing(key)
         if @hash[index] == nil
             @hash[index] = []
