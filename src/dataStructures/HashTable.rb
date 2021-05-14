@@ -42,4 +42,16 @@ class HashTable
         end
     end
 
+    def keys
+        result = []
+        i = 0
+        while i < @hash.length do
+            if @hash[i] != nil && @hash[i].length > 0
+                @hash[i].map { |k, v| result.push(k)}
+            end
+            i += 1
+        end
+        return result
+    end
+
 end
