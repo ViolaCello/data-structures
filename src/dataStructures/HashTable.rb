@@ -24,12 +24,22 @@ class HashTable
         if @hash[index] == nil
             @hash[index] = []
         end
-        return true if @hash[index].push(key, value)
+        return true if @hash[index].push([key, value])
     end
 
     # for debugging purposes
     def print_all
-        @hash.each_with_index  { |k, i| puts "At index #{i} is #{k}" }
+        @hash.map.with_index  { |k, i| puts "At index #{i} is #{k}" }
+    end
+
+    def get(key)
+        index = indexing(key)
+        return false if @hash[index] == nil || @hash[index].length == 0
+        i = 0
+        while i < @hash[index].length do
+            return @hash[index][i][1] if @hash[index][i][0] == key
+            i += 1
+        end
     end
 
 end
