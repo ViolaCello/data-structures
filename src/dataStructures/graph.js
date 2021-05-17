@@ -25,8 +25,8 @@ class Graph {
         let v2 = this.adjacencyList[vertex2]
         const remove = (x, y) => {
             for (let i = 0; i<x.length; i++) {
-                console.log(x[i])
-                if (x[i]===y) {
+                console.log(x[i], y)
+                if (x[i]==y) {
                     console.log(x.splice(i, 1))
                      return x.splice(i, 1)
                 }
@@ -44,3 +44,5 @@ a.addVertex("Chicago")
 a.addVertex("LA")
 a.addVertex("Boston")
 a.addEdge("New York", "LA")
+a.addEdge("New York", "Boston")
+a.addEdge("LA", "Boston")
