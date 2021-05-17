@@ -42,11 +42,11 @@ class Graph {
     }
 
     removeVertex(vertex) {
-        delete this.adjacencyList[vertex]
         for (let vert in this.adjacencyList) {
             console.log(vert)
             this.removeEdge(vertex, vert)
         }
+        delete this.adjacencyList[vertex]
     }
 
 }
