@@ -6,11 +6,11 @@ class Graph {
     }
 
 
-    addVertex(name) {
-        if (!!this.adjacencyList[name]) {
+    addVertex(vertex) {
+        if (!!this.adjacencyList[vertex]) {
             return undefined
         } else {
-        return this.adjacencyList[name] = []
+        return this.adjacencyList[vertex] = []
         }
     }
 
@@ -39,6 +39,14 @@ class Graph {
     removeEdgeAlt(v1, v2) {
         this.adjacencyList[v1] = this.adjacencyList[v1].filter(v => v != v2)
         this.adjacencyList[v2] = this.adjacencyList[v2].filter(v => v != v1)
+    }
+
+    removeVertex(vertex) {
+        delete this.adjacencyList[vertex]
+        for (let vert in this.adjacencyList) {
+            console.log(vert)
+            this.removeEdge(vertex, vert)
+        }
     }
 
 }
