@@ -25,13 +25,22 @@ class Graph {
         let v2 = this.adjacencyList[vertex2]
         const remove = (x, y) => {
             for (let i = 0; i<x.length; i++) {
+                console.log(x[i])
                 if (x[i]===y) {
+                    console.log(x.splice(i, 1))
                      return x.splice(i, 1)
                 }
             }
         }
-        remove(vertex1, vertex2)
-        remove(vertex2, vertex1)
+        remove(v1, v2)
+        remove(v2, v1)
     }
 
 }
+
+let a = new Graph
+a.addVertex("New York")
+a.addVertex("Chicago")
+a.addVertex("LA")
+a.addVertex("Boston")
+a.addEdge("New York", "LA")
