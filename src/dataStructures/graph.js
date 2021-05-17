@@ -35,13 +35,19 @@ class Graph {
             } 
     }
 
+    // Alternate Solution using FILTER for removeEdge()
+    removeEdgeAlt(v1, v2) {
+        this.adjacencyList[v1] = this.adjacencyList[v1].filter(v => v != v2)
+        this.adjacencyList[v2] = this.adjacencyList[v2].filter(v => v != v1)
+    }
+
 }
 
-// let a = new Graph
-// a.addVertex("New York")
-// a.addVertex("Chicago")
-// a.addVertex("LA")
-// a.addVertex("Boston")
-// a.addEdge("New York", "LA")
-// a.addEdge("New York", "Boston")
-// a.addEdge("LA", "Boston")
+let a = new Graph
+a.addVertex("New York")
+a.addVertex("Chicago")
+a.addVertex("LA")
+a.addVertex("Boston")
+a.addEdge("New York", "LA")
+a.addEdge("New York", "Boston")
+a.addEdge("LA", "Boston")
