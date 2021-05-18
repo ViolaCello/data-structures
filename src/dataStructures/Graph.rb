@@ -30,8 +30,15 @@ class Graph
             @list[v2].slice!(i) if @list[v2][i] == v1
             i += 1
         end
-        # @list.delete_if { |k, v| k == v1 || k == v2} # this is for remove_vertex
         return true
+    end
+
+    def remove_vertex(vertex)
+        return false if !@list[vertex]
+        i = 0
+        @list.each  { |k, v| remove_edge(vertex, k)}
+        @list.delete_if { |k, v| k == vertex } # deletes the key from the hash table
+        return true 
     end
 
 end
