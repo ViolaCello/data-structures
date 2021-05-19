@@ -49,13 +49,38 @@ class Graph {
         delete this.adjacencyList[vertex]
     }
 
+    depthFirstSearch(startingNode) {
+        let result = []
+        let visited = {}
+        const traverse = vertex => {
+            console.log("vertex=", vertex, " length=", vertex.length)
+            if (vertex.length==0) return
+            result.push(vertex)
+            visited[vertex] = true
+            for (let i = 0; i < this.adjacencyList[vertex].length; i++) {
+                console.log("current loop: i=", i, " =", this.adjacencyList[vertex][i])
+                if (!visited[this.adjacencyList[vertex][i]]) {
+                    traverse(this.adjacencyList[vertex][i])
+                }
+            }
+        }
+        traverse(startingNode)
+        return result
+    }
+
 }
 
 let a = new Graph
-a.addVertex("New York")
-a.addVertex("Chicago")
-a.addVertex("LA")
-a.addVertex("Boston")
-a.addEdge("New York", "LA")
-a.addEdge("New York", "Boston")
-a.addEdge("LA", "Boston")
+a.addVertex("A")
+a.addVertex("B")
+a.addVertex("C")
+a.addVertex("D")
+a.addVertex("E")
+a.addVertex("F")
+a.addEdge("A", "B")
+a.addEdge("A", "C")
+a.addEdge("B", "D")
+a.addEdge("C", "E")
+a.addEdge("D", "E")
+a.addEdge("D", "F")
+a.addEdge("E", "F")
