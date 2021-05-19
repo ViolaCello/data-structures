@@ -68,6 +68,23 @@ class Graph {
         return result
     }
 
+    depthFirstIterative(startingNode) {
+        const stack = []
+        const result = []
+        let visited = {}
+        stack.push(startingNode)
+        // visited[startingNode] = true
+        while (stack.length) {
+            let current = stack.pop()
+            if (!visited[current]) {
+                visited[current] = true
+                result.push(current)
+                this.adjacencyList[current].forEach(neighbor => stack.push(neighbor))
+            }
+        }
+        return result
+    }
+
 }
 
 let a = new Graph
