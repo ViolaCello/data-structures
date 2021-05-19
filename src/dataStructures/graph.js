@@ -54,7 +54,7 @@ class Graph {
         let visited = {}
         const traverse = vertex => {
             console.log("vertex=", vertex, " length=", vertex.length)
-            if (vertex.length==0) return
+            if (!vertex) return null
             result.push(vertex)
             visited[vertex] = true
             for (let i = 0; i < this.adjacencyList[vertex].length; i++) {
