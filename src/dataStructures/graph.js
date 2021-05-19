@@ -88,6 +88,26 @@ class Graph {
         return result
     }
 
+    breathFirstSearch(startingNode) {
+        const queue = [startingNode]
+        const result = []
+        const visited = {}
+        let current;
+        visited[startingNode] = true
+        while (queue.length) {
+            console.log(queue)
+            current = queue.shift()
+            result.push(current)
+            this.adjacencyList[current].forEach(neighbor => {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true
+                    queue.push(neighbor)
+                }
+            })
+        }
+        return result
+    }
+
 }
 
 let a = new Graph
