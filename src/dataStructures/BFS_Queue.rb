@@ -1,3 +1,5 @@
+# REMINDER: figure a way to cross-class this info
+
 class Q_Node
     attr_accessor :val, :next
 
@@ -92,14 +94,14 @@ class BinarySearchTree
     end
 
     def breath_first_search
-        queue = []
+        q = Queue.new
         result = []
-        queue.push(@root)
-        while queue.length != 0 do
-            dequeued = queue.shift()
-            result.push(dequeued)
-            queue.push(dequeued.left) if !!dequeued.left
-            queue.push(dequeued.right) if !!dequeued.right
+        q.enqueue(@root)
+        while q.size != 0 do
+            current= q.dequeue
+            result.push(current)
+            q.enqueue(current.left) if !!current.left
+            q.enqueue(current.right) if !!current.right
         end
         return result
     end
