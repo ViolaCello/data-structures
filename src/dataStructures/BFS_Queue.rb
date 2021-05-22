@@ -1,5 +1,3 @@
-# REMINDER: figure a way to cross-class this info
-
 class Q_Node
     attr_accessor :val, :next
 
@@ -98,12 +96,13 @@ class BinarySearchTree
         result = []
         q.enqueue(@root)
         while q.size != 0 do
-            current= q.dequeue
-            result.push(current)
-            q.enqueue(current.left) if !!current.left
-            q.enqueue(current.right) if !!current.right
+            current = q.dequeue
+            result.push(current.val)
+            q.enqueue(current.val.left) if !!current.val.left
+            q.enqueue(current.val.right) if !!current.val.right
         end
-        return result
+        puts result.kind_of?(Array)
+        return result.map {|v| puts v.value}
     end
 
 end
