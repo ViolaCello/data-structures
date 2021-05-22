@@ -19,15 +19,23 @@ class Graph {
 
     dijkstra(start, end) {
         let distances = {}
-        Object.keys(this.graphList).forEach(node => distances[node] = Number.POSITIVE_INFINITY)
+        Object.keys(this.graphList).forEach(node => distances[node] = Infinity)
         distances[start] = 0
         let queue = new PriorityQueue
         for (let node in this.graphList) {
-            if (distances[node]==Number.POSITIVE_INFINITY) queue.enqueue(node, Number.POSITIVE_INFINITY)
-        }
+            if (distances[node]==Infinity) queue.enqueue(node, Infinity)
+            }
+            queue.enqueue(start, 0)
         let previous = {}
         Object.keys(this.graphList).forEach(node => previous[node] = null)
         console.log(distances, previous)
+        while (queue.values.length) {
+            let vertex = queue.dequeue().val
+            if (vertex == end) break
+            this.graphList[vertex].forEach(node => {
+
+            })
+        }
 
     }
 
