@@ -62,7 +62,7 @@ class Node {
         // breath first search
         // return all the values in a Binary Search Tree, touching all of them only once
 
-        breathFirstSearch() {
+        breadthFirstSearch() {
             let queue = []
             let result = []
             queue.push(this.root)

@@ -91,7 +91,7 @@ class BinarySearchTree
         return self
     end
 
-    def breath_first_search
+    def breadth_first_search
         q = Queue.new
         result = []
         q.enqueue(@root)
@@ -101,8 +101,7 @@ class BinarySearchTree
             q.enqueue(current.val.left) if !!current.val.left
             q.enqueue(current.val.right) if !!current.val.right
         end
-        puts result.kind_of?(Array)
-        return result.map {|v| puts v.value}
+        return result
     end
 
 end

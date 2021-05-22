@@ -62,7 +62,7 @@ class BinarySearchTree
         end
     end
 
-    def breath_first_search
+    def breadth_first_search
         queue = []
         result = []
         queue.push(@root)
