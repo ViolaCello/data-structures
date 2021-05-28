@@ -86,6 +86,14 @@ class BinarySearchTree
         return @result 
     end
 
+    def DFS_preorder_recursive(current = self.root, result=[])
+        result.push(current.value)
+        DFS_preorder_recursive(current.left, result) if !!current.left
+        DFS_preorder_recursive(current.right, result) if !!current.right
+        return result
+    end
+
+
     def depth_first_search_postOrder
         @result = []
         def travserse(node)
