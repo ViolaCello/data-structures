@@ -228,7 +228,7 @@ let maxIceCream = function(costs, coins) {
     return count
 }
 
-// helpter to maxIceCream (bubbleSort was too slow for the large test case array)
+// helper to maxIceCream (bubbleSort was too slow for the large test case array)
 function insertionSort(arr) {
     for (let i = 0; i<arr.length; i++) {
       let currentValue = arr[i]
@@ -240,3 +240,24 @@ function insertionSort(arr) {
     }
     return arr
 }
+
+// given N, what is the Nth prime number?
+// my brute force method:
+function primes(n) {
+    let count = 1
+    let i = 3
+    while (count<n) {
+        for (let j = 2; j<=i; j++) {
+           // console.log(i, j)
+            
+            if (j==i) {
+               // console.log(j)
+                count++
+            }
+            if (i%j===0) break;
+        }
+        i++
+    }
+    return i - 1
+}
+
