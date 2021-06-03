@@ -312,3 +312,23 @@ function findMultiplesSum(n) {
     }
     return multiples.reduce((acc, cv) => acc+cv)
 }
+
+// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+// Find the sum of all the multiples of P or Q below N.
+const multipleSums = (n, p, q) => {
+    let multiples = []
+    if (p > q) {
+        let temp = p
+        p = q
+        q = temp
+    }
+    for (let i = p; i<n; i += p) {
+        multiples.push(i)
+    }
+    for (let i = q; i<n; i += q) {
+        if (i%p != 0) {
+            multiples.push(i)
+        }
+    }
+    return  multiples.reduce((acc, cv) => acc+cv)
+}
