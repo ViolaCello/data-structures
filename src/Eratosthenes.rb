@@ -24,7 +24,7 @@ def eratosthenes(n)
         end #end "i" While
         j = p + 1
         while j<=n 
-            if j==n 
+            if j > Math.sqrt(n)
                 primes.shift()
                 primes.shift()
                 k = 0
@@ -43,6 +43,7 @@ def eratosthenes(n)
                 break
             end
             j += 1
-        end #ends "j"
-    end #ends "p" WHILE
+        end 
+    end 
 end
+
