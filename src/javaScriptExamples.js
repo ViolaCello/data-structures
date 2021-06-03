@@ -332,3 +332,20 @@ const multipleSums = (n, p, q) => {
     }
     return  multiples.reduce((acc, cv) => acc+cv)
 }
+
+// return the sum of all even fibonacci numbers below max
+const fibNumbersEvenBelow = (max) => {
+    let fib = [1,2]
+    while (fib[fib.length-1] < max) {
+        fib.push(fib[fib.length-2] + fib[fib.length-1])
+        console.log(fib)
+    }
+    if (fib[fib.length-1] > max) fib.pop()
+    let sum = 0
+    fib.forEach((n) => {
+        if (n%2 == 0) {
+            sum += n 
+        }
+    })
+    return sum
+}
