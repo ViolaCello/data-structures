@@ -271,19 +271,19 @@ const eratosthenes = n => {
     // 2. Initially, let p equal 2, the smallest prime number.
     let p = 2
     while (p<n) {
-        console.log("Line 274")
     // 3. Enumerate the multiples of p by counting in increments of p from 2p to n, and mark them in the list (these will be 2p, 3p, 4p, ...; the p itself should not be marked).
         for (let i = p * 2; i<=n; i += p ) {
          primes[i] = false
          }
-         console.log("line 278")
            // 4. Find the smallest number in the list greater than p that is not marked. If there was no such number, stop. Otherwise, let p now equal this new number (which is the next prime), and repeat from step 3.
          for (let j = p+1; j<=n; j++) {
-             console.log("line 280")
              if (j===n) {
         // 5. When the algorithm terminates, the numbers remaining not marked in the list are all the primes below n.   
                 primes.shift()
                 primes.shift()
+                for (let k = 0; k<primes.length; k++) {
+                    if (!primes[k]) primes.splice(k,1)
+                }
                 return primes
              }
             if (!!primes[j]) {
