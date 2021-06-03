@@ -48,7 +48,7 @@ def eratosthenes(n)
 end
 
 
-# NOW, USING THE FOLLOWING pseudocode: 
+# NOW, USING THE FOLLOWING pseudocode: (from WikiPedia)
 # algorithm Sieve of Eratosthenes is
 #     input: an integer n > 1.
 #     output: all prime numbers from 2 through n.

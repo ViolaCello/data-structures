@@ -281,19 +281,34 @@ const eratosthenes = n => {
         // 5. When the algorithm terminates, the numbers remaining not marked in the list are all the primes below n.   
                 primes.shift()
                 primes.shift()
-                for (let k = 0; k<primes.length; k++) {
-                    if (!primes[k]) primes.splice(k,1)
+                let k = 0
+                while (k<primes.length) {
+                    if (!primes[k]) {
+                        primes.splice(k,1)
+                         k--}
+                         k++
                 }
                 return primes
              }
             if (!!primes[j]) {
                p = primes[j]
-                console.log("This is p in the loop:", p)
-                console.log("Line 283")
                 break;
             }
-            console.log("line 289")
          }
-         console.log("line 291")
     }
+}
+
+// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+// Find the sum of all the multiples of 3 or 5 below 1000.
+function findMultiplesSum(n) {
+    let multiples = []
+    for (let i = 3; i<n; i += 3) {
+        multiples.push(i)
+    }
+    for (let i = 5; i < n; i += 5) {
+        if (i%3 != 0) {
+            multiples.push(i)
+        }
+    }
+    return multiples.reduce((acc, cv) => acc+cv)
 }
