@@ -25,3 +25,19 @@ const totient = n => {
     return relativelyPrime.length
 }
 
+// find highest value of n <= 1,000,000 for which n/titient is maximum
+
+const maxTotient = n => {
+    let max = [0,0] // n is on left, Max avgTotient is on right 
+    let currentTotient;
+    let avgTotient;
+    for (let i = 2; i<=n; i++) {
+        currentTotient = totient(i)
+        avgTotient = i / currentTotient
+        if (avgTotient >= max[1]) {
+            max[0] = i
+            max[1] = avgTotient
+        }
+    }
+    return max 
+}
