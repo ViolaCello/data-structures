@@ -8,7 +8,20 @@ const gcd = (a,b) => {
         temp = (larger%smaller)
         larger = smaller
         smaller = temp
-        console.log(larger, smaller, temp)
+       // console.log(larger, smaller, temp)
     }
-    console.log("end", larger, smaller, temp)
+    return larger
 }
+
+// Euler's totient function
+
+const totient = n => {
+    let relativelyPrime = []
+    let rp;
+    for (let i = 1; i<n; i++) {
+        rp = gcd(i,n)
+        if (rp==1) relativelyPrime.push(i)
+    }
+    return relativelyPrime.length
+}
+
