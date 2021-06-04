@@ -49,27 +49,30 @@ const maxTotientOldWay = n => {
     return max 
 }
 
-// Phi(A*B) = Phi(A) * PHI(B)
+// Phi(A*B) = Phi(A) * PHI(B) !!!!! If and only is the GCD(A,B)=1
 // Therefore, there should be a way to store all the answers to these, then retrieve them...
 // So, let's try like this:
 const maxTotient = n => {
     let tots = [null, null]
     let max = [0,0] // n is on left, Max avgTotient is on right 
-    let currentTotient;
     let avgTotient;
     for(let i = 2; i<=n; i++) {
         if (!!isPrime(i)) {
             tots[i] = i - 1
-        } else if 
-              (tots.length>5 && i%2===0) {
-                tots[i] = tots[2] * tots[i/2]
-            } else if 
-                (tots.length>5 && i%3===0) {
-                    tots[i] = tots[3] * tots[i/3]
-                } else {
-                    currentTotient = totient(i)
+        } else if
+            (!!primeFactors(i)) {
+            let pf = primeFactors(i)
+            if (gcd(pf[0], pf[1])===1) {
+                tots[i] = tots[pf[0]] * tots[pf[1]]
                 }
-                avgTotient = i / currentTotient
+                else {
+                    tots[i] = totient(i)
+                } } 
+                
+                else {
+                    tots[i] = totient(i)
+                }
+                avgTotient = i / tots[i]
                 if (avgTotient >= max[1]) {
                     max[0] = i
                     max[1] = avgTotient
@@ -96,4 +99,24 @@ function isPrime(num) {
     }
     
     return true;
+  }
+
+  const primeFactors = n => {
+    const factors = [];
+    let divisor = 2;
+  
+    while (n >= 2) {
+        if (factors.length>2) return false
+      if (n % divisor == 0) {
+        factors.push(divisor);
+        n = n / divisor;
+      } else {
+        divisor++;
+      }
+    }
+    if (factors.length != 2) {
+        return false
+    } else {
+    return factors;
+    }
   }

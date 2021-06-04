@@ -78,6 +78,25 @@ def sieve_of_eratosthenes(n)
         end
         index += 1
     end
-    puts "Here are the prime numbers up to #{n}:"
-    primes.each_with_index {|p, i| puts i if !!p}
+      # puts "Here are the prime numbers up to #{n}:"
+    # primes.each_with_index {|p, i| puts i if !!p}
+    result = []
+    primes.each_with_index { | p,i| result.push(i) if !!p }
+    return result
+end
+
+def eulers_totient(n)
+    i = 0
+    result = 1
+    primes = sieve_of_eratosthenes(100)
+    while i<primes.length do 
+      temp = result * primes[i]
+        if temp > n 
+            break
+        else 
+            result = temp
+            i += 1
+        end
+    end
+    return result
 end
