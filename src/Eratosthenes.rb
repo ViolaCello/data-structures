@@ -88,7 +88,7 @@ end
 def eulers_totient(n)
     i = 0
     result = 1
-    primes = sieve_of_eratosthenes(100)
+    primes = sieve_of_eratosthenes(Math.sqrt(n))
     while i<primes.length do 
       temp = result * primes[i]
         if temp > n 
@@ -99,4 +99,17 @@ def eulers_totient(n)
         end
     end
     return result
+end
+
+def time_this
+    times = []
+    i=0
+    while i<10000
+        e = Time.now
+        eulers_totient(10000000)
+        f = Time.now - e 
+        times.push(f)
+        i += 1
+    end
+    puts times.sum / times.length
 end
