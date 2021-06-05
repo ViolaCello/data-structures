@@ -88,8 +88,15 @@ class BinarySearchTree
 
     def DFS_preorder_memoization(current = self.root, result=[])
         result.push(current.value)
-        DFS_preorder_recursive(current.left, result) if !!current.left
-        DFS_preorder_recursive(current.right, result) if !!current.right
+        DFS_preorder_memoization(current.left, result) if !!current.left
+        DFS_preorder_memoization(current.right, result) if !!current.right
+        return result
+    end
+
+    def DFS_postorder_memoization(current = self.root, result = [])
+        DFS_postorder_memoization(current.left, result) if !!current.left
+        DFS_postorder_memoization(current.right, result) if !!current.right
+        result.push(current.value)
         return result
     end
 
