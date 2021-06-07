@@ -17,14 +17,11 @@ const isPrime = num => {
   }
 
   const largestPrimeFactor = n => {
-        let primeFactors = []
-        if (n % 2 ===0 ) primeFactors.push(2)
-        if (n % 3 === 0 ) primeFactors.push(3)
-        for (let i = 5; i<(n/2); i++) {
-            if (i % 2 === 0 || i % 3 === 0 || i % 5 ===0 || i % 7 === 0) { continue };
-            if (n % i === 0 && !!isPrime(i)) {
-                primeFactors.push(i)
-            }
+        if (!!isPrime(n)) return n
+        for (let i = n; i>(n/2); i--) {
+            console.log(i)
+            // if (i % 2 === 0 || i % 3 === 0 || i % 5 ===0 || i % 7 === 0) { continue };
+           if ( n & i === 0 && !!isPrime(i)) return i
         }
-        return primeFactors.pop()
+        return false
   }
