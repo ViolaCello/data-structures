@@ -106,7 +106,7 @@ function isPrime(num) {
     let divisor = 2;
   
     while (n >= 2) {
-        if (factors.length>2) return false
+  
       if (n % divisor == 0) {
         factors.push(divisor);
         n = n / divisor;
@@ -114,9 +114,13 @@ function isPrime(num) {
         divisor++;
       }
     }
-    if (factors.length != 2) {
-        return false
-    } else {
+   
     return factors;
-    }
+    
   }
+
+  // Euler 3
+//   The prime factors of 13195 are 5, 7, 13 and 29.
+
+// What is the largest prime factor of the number 600851475143 ?
+
