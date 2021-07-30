@@ -131,4 +131,27 @@ class BinarySearchTree
         return find_recursive(value, current.left) if value < current.value
     end
 
+def delete(value, current = @root)
+    return nil if !current
+    if value < current.value
+        current.left = delete(value, current.left)      
+        elsif 
+            value > current.value
+            current.right = delete(value, current.right)
+        else
+            return current.right if !current.left
+            return current.left if !current.right
+            ## find the maximum value on the left 
+            ## which means, keep travering down the right side
+            right_max = current.left
+            while !!right_max.right do 
+                right_max = right_max.right
+            end
+            current.left = delete(right_max.value, current.left)
+        end
+    end
+    return true
+end 
+
+
 end
