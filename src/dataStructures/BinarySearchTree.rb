@@ -1,11 +1,30 @@
 class Node
     attr_accessor :value, :left, :right
+    @@all = []
 
     def initialize(value)
         @value = value
         @left = nil
         @right = nil
+        @@all << self
     end
+
+    def self.all
+        @@all.map |node| do
+            if !node.left && !node.right
+                puts "Value= #{node.value}, No Children"
+            elsif  
+                !node.left 
+                puts "Value= #{node.value}, No Left Child, Right= #{node.right.value}"
+            elsif 
+                !node.right
+                puts "Value= #{node.value}, Left= #{node.left.value}, No Right Child"
+            else 
+                puts "Value= #{node.value}, Left= #{node.left.value}, Right= #{node.right.value} "
+            end
+        end
+    end
+
 end
 
 # BIG O
