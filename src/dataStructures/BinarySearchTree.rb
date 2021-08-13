@@ -131,27 +131,55 @@ class BinarySearchTree
         return find_recursive(value, current.left) if value < current.value
     end
 
-def delete(value, current = @root)
-    return nil if !current
-    if value < current.value
-        current.left = delete(value, current.left)      
-        elsif 
-            value > current.value
-            current.right = delete(value, current.right)
-        else
-            return current.right if !current.left
-            return current.left if !current.right
-            ## find the maximum value on the left 
-            ## which means, keep travering down the right side
-            right_max = current.left
-            while !!right_max.right do 
-                right_max = right_max.right
-            end
-            current.left = delete(right_max.value, current.left)
-        end
-    end
-    return true
-end 
+# def delete(value, current = @root)
+#     return nil if !current
+#     if value < current.value
+#         current.left = delete(value, current.left)      
+#         elsif 
+#             value > current.value
+#             current.right = delete(value, current.right)
+#         else
+#             return current.right if !current.left
+#             return current.left if !current.right
+#             ## find the maximum value on the left 
+#             ## which means, keep travering down the right side
+#             right_max = current.left
+#             while !!right_max.right do 
+#                 right_max = right_max.right
+#             end
+#             current.left = delete(right_max.value, current.left)
+#         end
+#     end
+#     return true
+# end 
 
+def remove(val, current = self.root)
+    return nil if !current # tree is empty or we ran out of just_nodes
+    if val == current.value # delete this node
+      # if delete node has no children
+      if !current.left && !current.right
+        return nil # meaning, the parent will now point to nil
+      elsif # there is only one child of the deleted node
+        !current.left
+        return current.right
+      elsif !current.right
+        return current.left
+      else # this node has two children, find the smallest node of its right descendents 
+        smallest_node = current.right
+        while !!smallest_node.left do
+          smallest_node = smallest_node.left  
+        end 
+        current.value = smallest_node.value # move the smallest node of the right side to the spot where we deleted the node, technically, swap its VALUE, not the Node object itself
+        current.right = remove(smallest_node.value, current.right) # this line calls this method to delete the node we just found, but at its position that we originally found it, hence, we're calling the "root" of this method the right child of the node we just deleted/replaced
+        return current
+      end 
+    elsif current.value > val
+      current.left = remove(val, current.left)
+      return current
+    else 
+      current.right = remove(val, current.right)
+      return current
+    end 
+  end 
 
 end
