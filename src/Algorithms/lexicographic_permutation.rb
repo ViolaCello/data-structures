@@ -1,7 +1,7 @@
 
 
 
-def next_lex_permutation(data)
+def next_lexicographic_permutation(data)
     return false if data.length < 2 # Don't even bother to run the code if there is nothing to run
 
 # Step 1
@@ -51,7 +51,7 @@ def swap(arr, x, y)
     arr[y] = temp
 end
 
-def reverse(arr, i)
+def reverse(arr, i) # reverse arr from the i-position index to the end of the array
     if i>=arr.length-1
       return
     end
@@ -62,4 +62,17 @@ def reverse(arr, i)
       i+=1
       j-=1
     end
+end
+
+def print_all_lexicographic_permutations(data, first=true)
+    return if !data # since running recursively, this is the base-case to terminate
+
+    data = data.to_s.split('') # whether data is a string or integer, convert to string then array for each character/digit
+
+    data.sort! if !!first # begin at the first lexicographic permutation the first time the method is called
+
+    p data # print the current permutation of the array
+
+    print_all_lexicographic_permutations(next_lexicographic_permutation(data), false)
+    
 end
