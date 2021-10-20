@@ -49,6 +49,17 @@ def swap(arr, x, y)
     temp = arr[x] 
     arr[x] = arr[y]
     arr[y] = temp
-  end
+end
 
+def reverse(arr, i)
+    if i>=arr.length-1
+      return
+    end
   
+    j = arr.length - 1
+    while i < j do 
+      swap(arr, i, j)
+      i+=1
+      j-=1
+    end
+end
