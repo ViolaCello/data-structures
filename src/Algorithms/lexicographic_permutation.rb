@@ -45,3 +45,10 @@ def next_lex_permutation(data)
 
 end
 
+def swap(arr, x, y)
+    temp = arr[x] 
+    arr[x] = arr[y]
+    arr[y] = temp
+  end
+
+  
